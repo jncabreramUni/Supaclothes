@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Gestión</title>
+
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        <span class="logo-icon">▣</span>
+        <span>Proyecto Demo</span>
+    </div>
+
+    <div class="usuario">
+        Usuario
+    </div>
+</header>
+
+
+<div class="contenedor">
+
+    <aside class="sidebar">
+
+        <h2>Menú</h2>
+
+        <button onclick="mostrarSeccion('inicio')">
+            Inicio
+        </button>
+
+        <button onclick="mostrarSeccion('usuarios')">
+             Usuarios
+        </button>
+
+        <button onclick="mostrarSeccion('productos')">
+             Productos
+        </button>
+
+        <button onclick="mostrarSeccion('inventario')">
+             Inventario
+        </button>
+
+        <button onclick="mostrarSeccion('ventas')">
+             Ventas
+        </button>
+
+        <button onclick="mostrarSeccion('pagos')">
+             Pagos
+        </button>
+
+        <button onclick="mostrarSeccion('comprobantes')">
+             Comprobantes
+        </button>
+
+        <button class="cerrar" onclick="cerrarSesion()">
+             Cerrar sesión
+        </button>
+
+    </aside>
+
+
+    <main class="contenido">
+
+        <!-- INICIO -->
+
+        <section id="inicio" class="seccion activa">
+
+            <div class="titulo">
+                <h1>Panel principal</h1>
+
+                <p>
+                    Sistema de gestión de usuarios, productos,
+                    inventario y ventas.
+                </p>
+            </div>
+
+
+            <div class="tarjetas">
+
+                <!-- HU-01 -->
+
+                <div class="tarjeta">
+
+
+
+                    <h3>Iniciar sesión</h3>
+
+                    <p>
+                        Acceso al sistema mediante las credenciales
+                        del usuario.
+                    </p>
+
+                    <button onclick="abrirLogin()">
+                        Iniciar sesión
+                    </button>
+
+                </div>
+
+
+                <!-- HU-02 -->
+
+                <div class="tarjeta">
+
+
+
+                    <h3>Administrar usuarios</h3>
+
+                    <p>
+                        Gestión de los usuarios del sistema.
+                    </p>
+
+                    <button onclick="mostrarSeccion('usuarios')">
+                        Administrar usuarios
+                    </button>
+
+                </div>
+
+
+                <!-- HU-03 -->
+
+                <div class="tarjeta">
+
+
+
+                    <h3>Productos y variantes</h3>
+
+                    <p>
+                        Administración de productos y sus variantes.
+                    </p>
+
+                    <button onclick="mostrarSeccion('productos')">
+                        Administrar productos
+                    </button>
+
+                </div>
+
+
+                <!-- HU-04 -->
+
+                <div class="tarjeta">
+
+
+                    <h3>Entrada de inventario</h3>
+
+                    <p>
+                        Registro de entrada de productos al inventario.
+                    </p>
+
+                    <button onclick="mostrarSeccion('inventario')">
+                        Registrar entrada
+                    </button>
+
+                </div>
+
+
+                <!-- HU-05 -->
+
+                <div class="tarjeta">
+
+
+                    <h3>Inventario y stock</h3>
+
+                    <p>
+                        Consulta del inventario y productos con
+                        stock bajo.
+                    </p>
+
+                    <button onclick="mostrarSeccion('inventario')">
+                        Consultar inventario
+                    </button>
+
+                </div>
+
+
+                <!-- HU-07 -->
+
+                <div class="tarjeta">
+
+
+
+                    <h3>Registrar venta</h3>
+
+                    <p>
+                        Registro de las ventas realizadas.
+                    </p>
+
+                    <button onclick="mostrarSeccion('ventas')">
+                        Registrar venta
+                    </button>
+
+                </div>
+
+
+                <!-- HU-08 -->
+
+                <div class="tarjeta">
+
+
+
+                    <h3>Forma de pago</h3>
+
+                    <p>
+                        Registro del pago y cálculo del cambio.
+                    </p>
+
+                    <button onclick="mostrarSeccion('pagos')">
+                        Registrar pago
+                    </button>
+
+                </div>
+
+
+                <!-- HU-10 -->
+
+                <div class="tarjeta">
+
+
+
+                    <h3>Comprobante de venta</h3>
+
+                    <p>
+                        Generación y reimpresión de comprobantes.
+                    </p>
+
+                    <button onclick="mostrarSeccion('comprobantes')">
+                        Ver comprobantes
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- USUARIOS -->
+
+        <section id="usuarios" class="seccion">
+
+            <div class="titulo">
+
+                <h1>Administrar usuarios</h1>
+
+                <p>
+                    Gestión de usuarios del sistema.
+                </p>
+
+            </div>
+
+            <div class="acciones">
+
+                <button onclick="llamarFuncion('/api/usuarios')">
+                     Consultar usuarios
+                </button>
+
+                <button onclick="llamarFuncion('/api/usuarios/nuevo')">
+                     Crear usuario
+                </button>
+
+                <button onclick="llamarFuncion('/api/usuarios/editar')">
+                     Editar usuario
+                </button>
+
+                <button onclick="llamarFuncion('/api/usuarios/eliminar')">
+                     Eliminar usuario
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRODUCTOS -->
+
+        <section id="productos" class="seccion">
+
+            <div class="titulo">
+
+                <h1>Productos y variantes</h1>
+
+                <p>
+                    Administración del catálogo de productos.
+                </p>
+
+            </div>
+
+            <div class="acciones">
+
+                <button onclick="llamarFuncion('/api/productos')">
+                    Consultar productos
+                </button>
+
+                <button onclick="llamarFuncion('/api/productos/nuevo')">
+                     Nuevo producto
+                </button>
+
+                <button onclick="llamarFuncion('/api/productos/editar')">
+                     Editar producto
+                </button>
+
+                <button onclick="llamarFuncion('/api/productos/eliminar')">
+                     Eliminar producto
+                </button>
+
+                <button onclick="llamarFuncion('/api/productos/variantes')">
+                     Administrar variantes
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- INVENTARIO -->
+
+        <section id="inventario" class="seccion">
+
+            <div class="titulo">
+
+                <h1>Inventario</h1>
+
+                <p>
+                    Control de entradas y existencias.
+                </p>
+
+            </div>
+
+            <div class="acciones">
+
+                <button onclick="llamarFuncion('/api/inventario/entrada')">
+                    Registrar entrada
+                </button>
+
+                <button onclick="llamarFuncion('/api/inventario')">
+                    Consultar inventario
+                </button>
+
+                <button onclick="llamarFuncion('/api/inventario/stock-bajo')">
+                    Consultar stock bajo
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- VENTAS -->
+
+        <section id="ventas" class="seccion">
+
+            <div class="titulo">
+
+                <h1>Ventas</h1>
+
+                <p>
+                    Registro y gestión de ventas.
+                </p>
+
+            </div>
+
+            <div class="acciones">
+
+                <button onclick="llamarFuncion('/api/ventas/nueva')">
+                    Registrar venta
+                </button>
+
+                <button onclick="llamarFuncion('/api/ventas')">
+                    Consultar ventas
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PAGOS -->
+
+        <section id="pagos" class="seccion">
+
+            <div class="titulo">
+
+                <h1>Pago y cambio</h1>
+
+                <p>
+                    Registro de la forma de pago y cálculo del cambio.
+                </p>
+
+            </div>
+
+            <div class="acciones">
+
+                <button onclick="llamarFuncion('/api/pagos')">
+                     Registrar forma de pago
+                </button>
+
+                <button onclick="llamarFuncion('/api/pagos/cambio')">
+                    Calcular cambio
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMPROBANTES -->
+
+        <section id="comprobantes" class="seccion">
+
+            <div class="titulo">
+
+                <h1>Comprobantes de venta</h1>
+
+                <p>
+                    Generación y reimpresión de comprobantes.
+                </p>
+
+            </div>
+
+            <div class="acciones">
+
+                <button onclick="llamarFuncion('/api/comprobantes/generar')">
+                    Generar comprobante
+                </button>
+
+                <button onclick="llamarFuncion('/api/comprobantes')">
+                    Consultar comprobantes
+                </button>
+
+                <button onclick="llamarFuncion('/api/comprobantes/reimprimir')">
+                    Reimprimir comprobante
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- VENTANA DE LOGIN -->
+
+<div id="modalLogin" class="modal">
+
+    <div class="modal-contenido">
+
+        <span class="cerrar-modal" onclick="cerrarLogin()">
+            &times;
+        </span>
+
+        <h2>Iniciar sesión</h2>
+
+        <form onsubmit="iniciarSesion(event)">
+
+            <label>Usuario</label>
+
+            <input
+                    type="text"
+                    id="usuario"
+                    placeholder="Ingrese su usuario"
+                    required
+            >
+
+            <label>Contraseña</label>
+
+            <input
+                    type="password"
+                    id="password"
+                    placeholder="Ingrese su contraseña"
+                    required
+            >
+
+            <button type="submit">
+                Ingresar
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="/js/app.js"></script>
+
+</body>
+</html>
