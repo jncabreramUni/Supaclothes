@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101c2c">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <title>SupaClothes | Gestión</title>
+    <link rel="stylesheet" href="/css/inter.css">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <script src="/js/vendor/jspdf.umd.min.js" defer></script>
+    <script src="/js/receipt-pdf.js" defer></script>
+    <script src="/js/app.js" defer></script>
+</head>
+<body>
+    <main id="login-view" class="login-view">
+        <form id="login-form" class="login-card">
+            <div class="brand-mark" aria-hidden="true">S</div>
+            <p class="eyebrow">SISTEMA DE GESTIÓN</p>
+            <h1>SupaClothes</h1>
+            <p id="login-description" class="muted">Acceso para vendedores y personal de bodega.</p>
+            <label for="login-username">Usuario</label>
+            <input id="login-username" name="username" autocomplete="username" required>
+            <label for="login-password">Contraseña</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+            <button id="login-submit" class="button button-primary button-full" type="submit">Iniciar sesión</button>
+            <button id="admin-login-toggle" class="button button-secondary button-full" type="button">Acceso administrativo</button>
+            <p id="login-message" class="form-message" role="alert" aria-live="polite"></p>
+        </form>
+    </main>
+
+    <div id="app-shell" class="app-shell" hidden>
+        <a class="skip-link" href="#page-title">Saltar al contenido</a>
+        <aside class="sidebar">
+            <a class="brand" href="#" data-section="inicio">
+                <span class="brand-mark" aria-hidden="true">S</span>
+                <span><strong>SupaClothes</strong><small>Panel de gestión</small></span>
+            </a>
+            <p class="nav-label">MENÚ PRINCIPAL</p>
+            <nav class="navigation" aria-label="Menú principal">
+                <button class="nav-link active" type="button" data-section="inicio" aria-current="page"><span aria-hidden="true">⌂</span>Resumen</button>
+                <button class="nav-link" type="button" data-section="productos"><span aria-hidden="true">▦</span>Productos</button>
+                <button class="nav-link" type="button" data-section="inventario"><span aria-hidden="true">▤</span>Inventario</button>
+                <button class="nav-link" type="button" data-section="ventas" hidden><span aria-hidden="true">↗</span>Ventas</button>
+                <button class="nav-link" type="button" data-section="clientes" hidden><span aria-hidden="true">♧</span>Clientes</button>
+                <button class="nav-link" type="button" data-section="historial" hidden><span aria-hidden="true">◷</span>Historial</button>
+                <button class="nav-link" type="button" data-section="resumen-diario" hidden><span aria-hidden="true">▣</span>Resumen diario</button>
+                <button class="nav-link" type="button" data-section="reportes" hidden><span aria-hidden="true">▥</span>Reportes</button>
+                <button class="nav-link" type="button" data-section="usuarios" hidden><span aria-hidden="true">♙</span>Usuarios</button>
+                <button class="nav-link" type="button" data-section="ajustes"><span aria-hidden="true">⚙</span>Ajustes</button>
+            </nav>
+            <div class="sidebar-bottom">
+                <div class="user-badge"><span class="avatar">SC</span><span id="current-user">Usuario</span><small id="current-role"></small></div>
+                <button id="logout-button" class="nav-link logout-link" type="button"><span aria-hidden="true">↪</span>Cerrar sesión</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div><p class="eyebrow">SUPACLOTHES</p><h1 id="page-title" tabindex="-1">Resumen</h1></div>
+                <div class="topbar-preferences" aria-label="Preferencias de visualización">
+                    <label for="theme-choice">Tema<select id="theme-choice"><option value="system">Sistema</option><option value="light">Claro</option><option value="dark">Oscuro</option></select></label>
+                    <label for="text-choice">Texto<select id="text-choice"><option value="normal">Normal</option><option value="large">Grande</option><option value="extra-large">Extra grande</option></select></label>
+                </div>
+                <span class="session-pill"><span class="status-dot"></span>Sesión activa</span>
+            </header>
+            <div id="notice" class="notice" role="status" aria-live="polite" aria-atomic="true"></div>
+
+            <section id="section-inicio" class="page-section">
+                <div class="welcome-panel">
+                    <div>
+                        <p class="eyebrow">PANEL PRINCIPAL</p>
+                        <h2 id="welcome-title">Tu tienda, al día.</h2>
+                        <p id="welcome-description">Administra el catálogo, controla existencias y registra ventas desde un solo lugar.</p>
+                    </div>
+                    <span class="welcome-art" aria-hidden="true">SC</span>
+                </div>
+                <div class="stat-grid">
+                    <article class="stat-card"><span>Productos activos</span><strong id="stat-products">—</strong><small>En el catálogo</small></article>
+                    <article class="stat-card"><span>Variantes</span><strong id="stat-variants">—</strong><small>SKUs registrados</small></article>
+                    <article class="stat-card"><span>Stock bajo</span><strong id="stat-low-stock">—</strong><small>En o por debajo del mínimo</small></article>
+                </div>
+                <div id="sales-dashboard" hidden>
+                    <div class="content-card">
+                        <div class="card-heading"><div><p class="eyebrow">RESULTADOS DE LA TIENDA</p><h2>Ventas e inventario</h2></div></div>
+                        <form id="dashboard-form" class="form-grid"><label>Desde<input name="from" type="date" required></label><label>Hasta<input name="to" type="date" required></label><button class="button button-secondary" type="submit">Actualizar indicadores</button></form>
+                        <p id="dashboard-message" role="status" aria-live="polite"></p>
+                        <div id="dashboard-results" hidden>
+                            <div class="stat-grid analytics-stats">
+                                <article class="stat-card"><span>Ventas registradas</span><strong id="dashboard-count">0</strong></article>
+                                <article class="stat-card"><span>Valor de ventas</span><strong id="dashboard-sales">$0</strong></article>
+                                <article class="stat-card"><span>Devoluciones</span><strong id="dashboard-refunds">$0</strong></article>
+                                <article class="stat-card"><span>Ventas netas</span><strong id="dashboard-net">$0</strong></article>
+                                <article class="stat-card"><span>Unidades en inventario</span><strong id="dashboard-stock">0</strong><small>Existencias actuales</small></article>
+                                <article class="stat-card"><span>Variantes con stock bajo</span><strong id="dashboard-low">0</strong><small>Existencias actuales</small></article>
+                            </div>
+                            <figure class="sales-chart"><figcaption>Ventas y devoluciones por día</figcaption><p class="chart-legend"><span class="legend-sales">Ventas</span><span class="legend-refunds">Devoluciones</span></p><div id="sales-chart" class="chart-scroll" role="img" aria-label="Gráfica de ventas y devoluciones. Datos disponibles en la tabla siguiente."></div></figure>
+                            <details><summary>Ver datos diarios de la gráfica</summary><div class="table-wrap"><table><thead><tr><th>Fecha</th><th>Ventas</th><th>Devoluciones</th><th>Neto</th></tr></thead><tbody id="dashboard-daily"></tbody></table></div></details>
+                            <p class="muted">Las ventas se registran en su fecha original y las devoluciones en la fecha de devolución. Neto = ventas menos devoluciones.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="card-heading"><div><p id="quick-actions-eyebrow" class="eyebrow">INICIO RÁPIDO</p><h2>¿Qué necesitas hacer?</h2></div></div>
+                    <div id="quick-actions" class="quick-actions"></div>
+                </div>
+            </section>
+
+            <section id="section-productos" class="page-section" hidden>
+                <div class="section-heading"><div><p class="eyebrow">CATÁLOGO</p><h2>Productos y variantes</h2><p>Consulta y registra productos; cada variante tiene un SKU único.</p></div><button id="refresh-products" class="button button-secondary" type="button">Actualizar</button></div>
+                <div class="content-card">
+                    <div class="card-heading"><div><p class="eyebrow">INVENTARIO DE PRODUCTOS</p><h3>Catálogo actual</h3></div></div>
+                    <div class="filter-bar"><label>Buscar por nombre, categoría o SKU<input id="filter-products" type="search"></label></div>
+                    <div class="table-wrap"><table><thead><tr><th>Producto</th><th>Categoría</th><th>SKU</th><th>Variante</th><th>Precio</th><th>Existencias</th><th>Estado</th><th>Acciones</th></tr></thead><tbody id="products-table"></tbody></table></div>
+                </div>
+                <div class="content-card form-card">
+                    <div class="card-heading"><div><p class="eyebrow">NUEVO PRODUCTO</p><h3>Registrar producto</h3><p class="muted">Completa la información y agrega sus variantes.</p></div></div>
+                    <form id="product-form" class="form-grid">
+                        <label>Nombre<input name="name" maxlength="120" required></label>
+                        <label>Categoría<input name="category" maxlength="80" required></label>
+                        <label class="field-wide">Descripción<input name="description" maxlength="255"></label>
+                        <div id="variant-rows" class="field-wide variant-rows">
+                            <div class="variant-input-row">
+                                <label>SKU<input class="variant-sku" maxlength="50" required></label>
+                                <label>Talla<input class="variant-size" maxlength="20" required></label>
+                                <label>Color<input class="variant-color" maxlength="40" required></label>
+                                <label>Precio<input class="variant-price" type="number" min="0" max="9999999999.99" step="0.01" required></label>
+                                <label>Tasa de IVA (0,19 equivale a 19 %)<input class="variant-tax" type="number" min="0" max="999.99" step="0.01" required></label>
+                                <label>Stock mínimo<input class="variant-min-stock" type="number" min="0" max="2147483647" step="1" value="0" required></label>
+                            </div>
+                        </div>
+                        <div class="field-wide"><button id="add-variant-row" class="button button-secondary" type="button">Agregar otra variante</button></div>
+                        <div class="field-wide form-actions"><button class="button button-primary" type="submit">Crear producto</button></div>
+                    </form>
+                </div>
+            </section>
+
+            <section id="section-inventario" class="page-section" hidden>
+                <div class="section-heading"><div><p class="eyebrow">CONTROL DE EXISTENCIAS</p><h2>Inventario</h2><p>Registra entradas usando el SKU de una variante existente.</p></div><button id="refresh-inventory" class="button button-secondary" type="button">Actualizar</button></div>
+                <div class="content-card">
+                    <div class="card-heading"><div><p class="eyebrow">EXISTENCIAS</p><h3>Stock por variante</h3></div></div>
+                    <div class="filter-bar">
+                        <label>Buscar por producto o SKU<input id="filter-inventory" type="search"></label>
+                        <label class="check-label"><input id="only-low-stock" type="checkbox"> Solo stock bajo <span id="inventory-low-count"></span></label>
+                    </div>
+                    <div class="table-wrap"><table><thead><tr><th>Producto</th><th>SKU</th><th>Talla</th><th>Color</th><th>Stock</th><th>Mínimo</th><th>Estado</th></tr></thead><tbody id="inventory-table"></tbody></table></div>
+                </div>
+                <div class="content-card">
+                    <div class="card-heading"><div><p class="eyebrow">TRAZABILIDAD</p><h3>Movimientos recientes</h3></div></div>
+                    <div class="table-wrap"><table><thead><tr><th>Fecha</th><th>SKU</th><th>Tipo</th><th>Cantidad</th><th>Stock anterior</th><th>Stock resultante</th><th>Usuario</th><th>Referencia</th></tr></thead><tbody id="movements-table"></tbody></table></div>
+                </div>
+                <div class="content-card form-card">
+                    <div class="card-heading"><div><p class="eyebrow">NUEVA OPERACIÓN</p><h3>Registrar entrada de stock</h3><p class="muted">Agrega unidades a una variante existente.</p></div></div>
+                    <form id="inventory-form" class="form-grid">
+                        <label>SKU<input name="sku" maxlength="50" required></label>
+                        <label>Cantidad<input name="quantity" type="number" min="1" max="2147483647" step="1" required></label>
+                        <label class="field-wide">Referencia<input name="reference" maxlength="150" placeholder="Referencia del proveedor" required></label>
+                        <div class="field-wide form-actions"><button class="button button-primary" type="submit">Registrar entrada</button></div>
+                    </form>
+                </div>
+            </section>
+
+            <section id="section-clientes" class="page-section" hidden>
+                <div class="content-card">
+                    <div class="card-heading"><h2>Buscar clientes</h2><button id="new-customer" class="button button-primary" type="button">Registrar cliente</button></div>
+                    <form id="customer-directory-form" class="form-grid">
+                        <label>Nombre o número de documento<input name="query" type="search"></label>
+                        <div class="form-actions"><button class="button button-secondary">Buscar clientes</button></div>
+                    </form>
+                    <p id="customer-directory-status" role="status"></p>
+                    <div class="table-wrap"><table><thead><tr><th>Nombre</th><th>Documento</th></tr></thead><tbody id="customer-directory"></tbody></table></div>
+                </div>
+            </section>
+            <section id="section-historial" class="page-section" hidden>
+                <div class="content-card">
+                    <h2>Filtrar ventas</h2>
+                    <form id="history-form" class="form-grid"><label>Desde<input name="from" type="date"></label><label>Hasta<input name="to" type="date"></label><label>Comprobante<input name="receipt"></label><div class="form-actions"><button class="button button-primary">Buscar ventas</button></div></form>
+                    <p id="history-status" role="status"></p>
+                    <div class="table-wrap"><table><thead><tr><th>Fecha</th><th>Comprobante</th><th>Cliente</th><th>Total</th><th>Estado</th><th>Detalle</th></tr></thead><tbody id="sales-history"></tbody></table></div>
+                </div>
+            </section>
+            <section id="section-resumen-diario" class="page-section" hidden>
+                <div class="content-card">
+                    <h2>Ventas por fecha</h2>
+                    <form id="daily-form" class="form-grid"><label>Fecha<input type="date" name="date" required></label><div class="form-actions"><button class="button button-primary">Consultar día</button></div></form>
+                    <p id="daily-result" role="status"></p>
+                </div>
+            </section>
+            <section id="section-ventas" class="page-section" hidden>
+                <div class="section-heading"><div><p class="eyebrow">MOVIMIENTOS COMERCIALES</p><h2>Ventas</h2><p>Consulta comprobantes y actividad antes de iniciar una nueva operación.</p></div></div>
+                <div class="section-actions">
+                    <button class="button button-secondary" type="button" data-section="historial">Historial de ventas</button>
+                    <button class="button button-secondary" type="button" data-section="resumen-diario">Resumen diario</button>
+                </div>
+                <div class="content-card">
+                    <div class="card-heading"><div><p class="eyebrow">REIMPRESIÓN</p><h3>Consultar comprobante interno</h3><p class="muted">Documento interno; no es una factura electrónica.</p></div></div>
+                    <form id="receipt-search" class="form-grid">
+                        <label class="field-wide">Número de comprobante<input name="receiptNumber" required></label>
+                        <div class="field-wide form-actions"><button class="button button-secondary" type="submit">Buscar comprobante</button></div>
+                    </form>
+                </div>
+                <div class="section-heading"><div><p class="eyebrow">PUNTO DE VENTA</p><h2>Registrar una venta</h2><p>Agrega los SKUs y cantidades; el backend valida stock y calcula impuestos.</p></div></div>
+                <div class="content-card form-card">
+                    <div class="card-heading"><div><p class="eyebrow">DETALLE DE VENTA</p><h3>Agregar artículos</h3></div></div>
+                    <form id="sale-item-form" class="form-grid sale-line-form">
+                        <label class="field-wide">Buscar variante por producto o SKU<input id="filter-sale-sku" type="search"></label>
+                        <label>Variante (SKU)<select id="sale-sku" name="sku" required><option value="">Primero carga productos</option></select></label>
+                        <label>Cantidad<input name="quantity" type="number" min="1" max="2147483647" step="1" value="1" required></label>
+                        <div class="form-actions"><button class="button button-secondary" type="submit">Agregar artículo</button></div>
+                    </form>
+                    <div class="table-wrap"><table><thead><tr><th>SKU</th><th>Producto</th><th>Talla / color</th><th>Precio unitario</th><th>Cantidad</th><th></th></tr></thead><tbody id="cart-table"></tbody></table></div>
+                    <form id="sale-customer-search" class="form-grid">
+                        <label>Buscar cliente por nombre o documento<input id="customer-query" type="search"></label>
+                        <div class="form-actions"><button id="search-customers" class="button button-secondary">Buscar</button></div>
+                    </form>
+                    <div class="form-grid customer-fields">
+                        <label>Cliente<select id="sale-customer"><option value="">Consumidor final</option></select></label>
+                        <div class="form-actions"><button id="new-sale-customer" type="button" class="button button-secondary">Registrar cliente</button></div>
+                    </div>
+                    <div class="form-grid payment-fields">
+                        <label>Forma de pago<select id="payment-method"><option value="EFECTIVO">Efectivo</option><option value="TARJETA">Tarjeta</option><option value="TRANSFERENCIA">Transferencia</option></select></label>
+                        <label>Efectivo recibido / valor pagado<input id="amount-received" type="number" min="0" max="9999999999.99" step="0.01" required></label>
+                        <label id="sale-discount-field" hidden>Descuento de la venta (%)<input id="sale-discount" type="number" min="0" max="100" step="0.01" value="0"></label>
+                        <p id="sale-estimate" class="field-wide muted">Total estimado: $0</p>
+                        <p id="change-estimate" class="field-wide muted" role="status"></p>
+                        <p class="field-wide muted">El sistema registra el medio de pago, pero no procesa ni confirma pagos bancarios.</p>
+                    </div>
+                    <div class="sale-submit"><p id="cart-empty" class="muted">Aún no hay artículos en la venta.</p><button id="submit-sale" class="button button-primary" type="button" disabled>Confirmar venta</button></div>
+                    <p id="sale-result" class="sale-result" role="status" aria-live="polite"></p>
+                    <div id="pending-sale-actions" class="section-actions" hidden>
+                        <button id="retry-sale" class="button button-secondary" type="button">Comprobar venta pendiente</button>
+                        <button id="discard-pending-sale" class="button button-danger" type="button" hidden>Descartar referencia local</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-reportes" class="page-section" hidden>
+                <div class="section-heading"><div><p class="eyebrow">CONSULTA Y EXPORTACIÓN</p><h2>Reportes</h2><p>Consulta movimientos de ventas y existencias. Descarga los datos en Excel.</p></div></div>
+                <div class="content-card">
+                    <form id="report-form" class="form-grid"><label>Reporte<select name="type" id="report-type"><option value="sales">Ventas y devoluciones</option><option value="inventory">Inventario actual</option></select></label><label id="report-from-label">Desde<input name="from" type="date" required></label><label id="report-to-label">Hasta<input name="to" type="date" required></label><div class="field-wide form-actions"><button class="button button-secondary" type="submit">Consultar reporte</button><button id="export-report" class="button button-primary" type="button">Descargar Excel</button><button id="share-report" class="button button-secondary" type="button" hidden>Compartir Excel</button></div></form>
+                    <p id="report-message" role="status" aria-live="polite"></p><p id="report-summary"></p>
+                    <div class="table-wrap"><table><caption id="report-caption">Selecciona los filtros para consultar.</caption><thead id="report-head"></thead><tbody id="report-body"></tbody></table></div>
+                </div>
+            </section>
+            <section id="section-usuarios" class="page-section" hidden>
+                <div class="section-heading"><div><p class="eyebrow">ACCESOS</p><h2>Usuarios</h2><p>Crea cuentas y desactiva accesos que ya no deban utilizarse.</p></div><button id="refresh-users" class="button button-secondary" type="button">Actualizar</button></div>
+                <div class="content-card">
+                    <div class="card-heading"><div><p class="eyebrow">EQUIPO</p><h3>Usuarios registrados</h3></div></div>
+                    <div class="table-wrap"><table><thead><tr><th>Nombre</th><th>Usuario</th><th>Rol</th><th>Estado</th><th>Acciones</th></tr></thead><tbody id="users-table"></tbody></table></div>
+                </div>
+                <div class="content-card form-card">
+                    <div class="card-heading"><div><p class="eyebrow">NUEVO ACCESO</p><h3>Registrar usuario</h3></div></div>
+                    <form id="user-form" class="form-grid">
+                        <label>Nombre completo<input name="fullName" maxlength="120" required></label>
+                        <label>Usuario<input name="username" maxlength="50" autocomplete="off" required></label>
+                        <label>Contraseña<input name="password" type="password" minlength="6" autocomplete="new-password" required></label>
+                        <label>Rol<select name="roleName" required><option value="VENDEDOR">Vendedor</option><option value="BODEGA">Bodega</option><option value="ADMIN">Administrador</option></select></label>
+                        <div class="field-wide form-actions"><button class="button button-primary" type="submit">Crear usuario</button></div>
+                    </form>
+                </div>
+            </section>
+            <section id="section-ajustes" class="page-section" hidden>
+                <div class="content-card">
+                    <h2>Perfil</h2>
+                    <p id="profile-name"></p><p id="profile-account" class="muted"></p>
+                    <button id="profile-logout" class="button button-secondary" type="button">Cerrar sesión</button>
+                </div>
+                <div class="content-card">
+                    <h2>Preferencias de visualización</h2>
+                    <div class="form-grid">
+                        <label>Tema<select id="settings-theme"><option value="system">Usar tema del dispositivo</option><option value="light">Claro</option><option value="dark">Oscuro</option></select></label>
+                        <label>Tamaño de texto<select id="settings-text"><option value="normal">Normal</option><option value="large">Grande</option><option value="extra-large">Extra grande</option></select></label>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <dialog id="customer-dialog" aria-labelledby="customer-title">
+        <form id="customer-form" class="form-grid dialog-card">
+            <h2 id="customer-title" class="field-wide">Registrar cliente</h2>
+            <label>Tipo de documento<select name="documentType" required><option value="CC">Cédula de ciudadanía (CC)</option><option value="CE">Cédula de extranjería (CE)</option><option value="NIT">NIT</option><option value="PASAPORTE">Pasaporte</option><option value="OTRO">Otro</option></select></label>
+            <label>Número de documento<input name="documentNumber" maxlength="30" required></label>
+            <label>Nombre<input name="name" maxlength="120" required></label>
+            <label>Teléfono (opcional)<input name="phone" maxlength="20" type="tel"></label>
+            <label>Correo (opcional)<input name="email" type="email" maxlength="120"></label>
+            <p id="customer-form-error" class="form-message field-wide" role="status"></p>
+            <div class="field-wide form-actions"><button class="button button-primary">Guardar cliente</button><button id="cancel-customer" class="button button-secondary" type="button">Cancelar</button></div>
+        </form>
+    </dialog>
+    <dialog id="product-edit-dialog" aria-labelledby="product-edit-title">
+        <form id="product-edit-form" class="form-grid dialog-card">
+            <h2 id="product-edit-title" class="field-wide">Editar producto</h2>
+            <input name="id" type="hidden">
+            <label>Nombre<input name="name" maxlength="120" required></label>
+            <label>Categoría<input name="category" maxlength="80" required></label>
+            <label class="field-wide">Descripción<input name="description" maxlength="255"></label>
+            <div class="field-wide form-actions"><button class="button button-primary" type="submit">Guardar cambios</button><button id="cancel-product-edit" class="button button-secondary" type="button">Cancelar</button></div>
+        </form>
+    </dialog>
+    <dialog id="variant-edit-dialog" aria-labelledby="variant-dialog-title">
+        <form id="variant-edit-form" class="form-grid dialog-card">
+            <h2 id="variant-dialog-title" class="field-wide">Variante</h2>
+            <input name="productId" type="hidden">
+            <input name="variantId" type="hidden">
+            <label>SKU<input name="sku" maxlength="50" required></label>
+            <label>Talla<input name="size" maxlength="20" required></label>
+            <label>Color<input name="color" maxlength="40" required></label>
+            <label>Precio<input name="price" type="number" min="0" max="9999999999.99" step="0.01" required></label>
+            <label>Tasa de IVA (0,19 equivale a 19 %)<input name="taxRate" type="number" min="0" max="999.99" step="0.01" required></label>
+            <label>Stock mínimo<input name="minStock" type="number" min="0" max="2147483647" step="1" required></label>
+            <div class="field-wide form-actions"><button class="button button-primary" type="submit">Guardar variante</button><button id="cancel-variant-edit" class="button button-secondary" type="button">Cancelar</button></div>
+        </form>
+    </dialog>
+    <dialog id="receipt-dialog" aria-labelledby="receipt-title">
+        <article id="receipt-content" class="receipt-paper"></article>
+        <section class="return-panel" aria-labelledby="return-title"><h3 id="return-title">Devolución de la venta</h3><p id="return-status" role="status" aria-live="polite"></p>
+            <form id="return-form" class="form-grid" hidden><p class="field-wide muted">Se devolverán todos los artículos de este comprobante al inventario. El valor registrado corresponde al total original, incluido el descuento.</p><label class="field-wide">Motivo de la devolución<input name="reason" maxlength="500" required></label><div class="field-wide form-actions"><button id="submit-return" type="submit" class="button button-danger">Registrar devolución total</button></div></form>
+        </section>
+        <div class="form-actions">
+            <button id="download-receipt" class="button button-secondary" type="button">Descargar comprobante</button>
+            <button id="download-receipt-pdf" class="button button-secondary" type="button">Descargar PDF</button>
+            <button id="share-receipt-pdf" class="button button-secondary" type="button" hidden>Compartir PDF</button>
+            <button id="print-receipt" class="button button-primary" type="button">Imprimir / reimprimir</button>
+            <button id="close-receipt" class="button button-secondary" type="button">Cerrar</button>
+        </div>
+        <p id="receipt-export-status" role="status"></p>
+    </dialog>
+</body>
+</html>

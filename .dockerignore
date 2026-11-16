@@ -1,0 +1,13 @@
+**
+!Supaclothes-backend/
+!Supaclothes-backend/pom.xml
+!Supaclothes-backend/src/
+!Supaclothes-backend/src/main/
+!Supaclothes-backend/src/main/**
+!Supaclothes-frontend/
+!Supaclothes-frontend/index.html
+!Supaclothes-frontend/favicon.svg
+!Supaclothes-frontend/css/
+!Supaclothes-frontend/css/**
+!Supaclothes-frontend/js/
+!Supaclothes-frontend/js/**

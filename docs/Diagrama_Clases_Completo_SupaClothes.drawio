@@ -1,0 +1,416 @@
+<mxfile host="Electron" agent="Copilot">
+  <diagram id="supaclothes-class-complete" name="Diagrama de clases SupaClothes">
+    <mxGraphModel dx="1736" dy="756" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="6100" pageHeight="2675" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="page-title" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#1e1e1e;strokeWidth=2;fontFamily=Arial;fontSize=24;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;" value="SupaClothes | Complete class diagram" vertex="1">
+          <mxGeometry height="55" width="5940" x="80" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-entity" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;" value="ENTIDADES JPA" vertex="1">
+          <mxGeometry height="42" width="1080" x="80" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-dto" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BB9AE7;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;" value="DTO / CONTRACTS" vertex="1">
+          <mxGeometry height="42" width="1450" x="1230" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-controller" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#95E3E7;strokeColor=#03464A;strokeWidth=2;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;" value="CONTROLLERS" vertex="1">
+          <mxGeometry height="42" width="980" x="2750" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-service" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD09E;strokeColor=#572F04;strokeWidth=2;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;" value="SERVICES" vertex="1">
+          <mxGeometry height="42" width="500" x="3790" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-repository" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;" value="REPOSITORIES" vertex="1">
+          <mxGeometry height="42" width="1020" x="4330" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-security" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;" value="SECURITY / APPLICATION" vertex="1">
+          <mxGeometry height="42" width="560" x="5410" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="D-User" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#fff2cc;swimlaneFillColor=#FFFFFF;strokeColor=#d6b656;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="User" vertex="1">
+          <mxGeometry height="298" width="500" x="630" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="D-User-body" parent="D-User" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;Entity, UserDetails&lt;br&gt;--- attributes ---&lt;br&gt;- id: Long&lt;br&gt;- username: String&lt;br&gt;- fullName: String&lt;br&gt;- passwordHash: String&lt;br&gt;- role: Role&lt;br&gt;- active: boolean&lt;br&gt;- createdAt: LocalDateTime&lt;br&gt;- updatedAt: LocalDateTime&lt;br&gt;--- operations ---&lt;br&gt;+ getAuthorities(): Collection&lt;br&gt;+ isEnabled(): boolean&lt;/div&gt;" vertex="1">
+          <mxGeometry height="262" relative="1" width="500" as="geometry" />
+        </mxCell>
+        <mxCell id="D-Role" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#fff2cc;swimlaneFillColor=#FFFFFF;strokeColor=#d6b656;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="Role" vertex="1">
+          <mxGeometry height="165" width="500" x="80" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="D-Role-body" parent="D-Role" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;Entity&lt;br&gt;--- attributes ---&lt;br&gt;- id: int&lt;br&gt;- name: String&lt;br&gt;- description: String&lt;br&gt;--- operations ---&lt;br&gt;+ getters/setters&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="500" as="geometry" />
+        </mxCell>
+        <mxCell id="D-Product" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#fff2cc;swimlaneFillColor=#FFFFFF;strokeColor=#d6b656;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="Product" vertex="1">
+          <mxGeometry height="274" width="500" x="630" y="588" as="geometry" />
+        </mxCell>
+        <mxCell id="D-Product-body" parent="D-Product" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;Entity&lt;br&gt;--- attributes ---&lt;br&gt;- id: Long&lt;br&gt;- name: String&lt;br&gt;- category: String&lt;br&gt;- description: String&lt;br&gt;- active: boolean&lt;br&gt;- variants: List&lt;br&gt;- createdAt: LocalDateTime&lt;br&gt;- updatedAt: LocalDateTime&lt;br&gt;--- operations ---&lt;br&gt;+ addVariant(variant): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="238" relative="1" width="500" as="geometry" />
+        </mxCell>
+        <mxCell id="D-Sale" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#fff2cc;swimlaneFillColor=#FFFFFF;strokeColor=#d6b656;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="Sale" vertex="1">
+          <mxGeometry height="394" width="500" x="630" y="917" as="geometry" />
+        </mxCell>
+        <mxCell id="D-Sale-body" parent="D-Sale" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;Entity&lt;br&gt;--- attributes ---&lt;br&gt;- id: int&lt;br&gt;- receiptNumber: String&lt;br&gt;- sellerId: Long&lt;br&gt;- customerId: Integer&lt;br&gt;- subtotal: BigDecimal&lt;br&gt;- taxTotal: BigDecimal&lt;br&gt;- discountPercent: BigDecimal&lt;br&gt;- discountValue: BigDecimal&lt;br&gt;- discountUserId: Integer&lt;br&gt;- total: BigDecimal&lt;br&gt;- status: String&lt;br&gt;- createdAt: LocalDateTime&lt;br&gt;- items: List&lt;br&gt;--- operations ---&lt;br&gt;+ addItem(item): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="358" relative="1" width="500" as="geometry" />
+        </mxCell>
+        <mxCell id="D-SaleItem" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#fff2cc;swimlaneFillColor=#FFFFFF;strokeColor=#d6b656;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="SaleItem" vertex="1">
+          <mxGeometry height="322" width="500" x="80" y="1366" as="geometry" />
+        </mxCell>
+        <mxCell id="D-SaleItem-body" parent="D-SaleItem" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;Entity&lt;br&gt;--- attributes ---&lt;br&gt;- id: Long&lt;br&gt;- sale: Sale&lt;br&gt;- variant: ProductVariant&lt;br&gt;- quantity: int&lt;br&gt;- unitPrice: BigDecimal&lt;br&gt;- taxRate: BigDecimal&lt;br&gt;- lineTotal: BigDecimal&lt;br&gt;- skuAtSale: String&lt;br&gt;- productNameAtSale: String&lt;br&gt;- sizeAtSale: String&lt;br&gt;- colorAtSale: String&lt;/div&gt;" vertex="1">
+          <mxGeometry height="286" relative="1" width="500" as="geometry" />
+        </mxCell>
+        <mxCell id="D-ProductVariant" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#fff2cc;swimlaneFillColor=#FFFFFF;strokeColor=#d6b656;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="ProductVariant" vertex="1">
+          <mxGeometry height="346" width="500" x="80" y="917" as="geometry" />
+        </mxCell>
+        <mxCell id="D-ProductVariant-body" parent="D-ProductVariant" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;Entity&lt;br&gt;--- attributes ---&lt;br&gt;- id: Long&lt;br&gt;- product: Product&lt;br&gt;- sku: String&lt;br&gt;- size: String&lt;br&gt;- color: String&lt;br&gt;- price: BigDecimal&lt;br&gt;- taxRate: BigDecimal&lt;br&gt;- minStock: int&lt;br&gt;- currentStock: int&lt;br&gt;- active: boolean&lt;br&gt;- createdAt: LocalDateTime&lt;br&gt;- updatedAt: LocalDateTime&lt;/div&gt;" vertex="1">
+          <mxGeometry height="310" relative="1" width="500" as="geometry" />
+        </mxCell>
+        <mxCell id="D-Customer" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#fff2cc;swimlaneFillColor=#FFFFFF;strokeColor=#d6b656;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="Customer" vertex="1">
+          <mxGeometry height="226" width="500" x="80" y="588" as="geometry" />
+        </mxCell>
+        <mxCell id="D-Customer-body" parent="D-Customer" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;Entity&lt;br&gt;--- attributes ---&lt;br&gt;- id: Long&lt;br&gt;- documentNumber: String&lt;br&gt;- name: String&lt;br&gt;- phone: String&lt;br&gt;- email: String&lt;br&gt;- createdAt: LocalDateTime&lt;br&gt;--- operations ---&lt;br&gt;+ getters/setters&lt;/div&gt;" vertex="1">
+          <mxGeometry height="190" relative="1" width="500" as="geometry" />
+        </mxCell>
+        <mxCell id="D-Payment" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#fff2cc;swimlaneFillColor=#FFFFFF;strokeColor=#d6b656;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="Payment" vertex="1">
+          <mxGeometry height="202" width="500" x="630" y="1366" as="geometry" />
+        </mxCell>
+        <mxCell id="D-Payment-body" parent="D-Payment" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;Entity&lt;br&gt;--- attributes ---&lt;br&gt;- id: int&lt;br&gt;- saleId: int&lt;br&gt;- method: String&lt;br&gt;- amountReceived: BigDecimal&lt;br&gt;- changeGiven: BigDecimal&lt;br&gt;- createdAt: LocalDateTime&lt;/div&gt;" vertex="1">
+          <mxGeometry height="166" relative="1" width="500" as="geometry" />
+        </mxCell>
+        <mxCell id="D-InventoryMovement" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#fff2cc;swimlaneFillColor=#FFFFFF;strokeColor=#d6b656;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="InventoryMovement" vertex="1">
+          <mxGeometry height="322" width="500" x="80" y="1743" as="geometry" />
+        </mxCell>
+        <mxCell id="D-InventoryMovement-body" parent="D-InventoryMovement" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;Entity&lt;br&gt;--- attributes ---&lt;br&gt;- id: int&lt;br&gt;- variantId: Long&lt;br&gt;- skuAtMovement: String&lt;br&gt;- userId: Long&lt;br&gt;- saleId: Integer [nullable]&lt;br&gt;- type: String&lt;br&gt;- quantity: int&lt;br&gt;- previousStock: int&lt;br&gt;- resultingStock: int&lt;br&gt;- reference: String&lt;br&gt;- createdAt: LocalDateTime&lt;/div&gt;" vertex="1">
+          <mxGeometry height="286" relative="1" width="500" as="geometry" />
+        </mxCell>
+        <mxCell id="A-AuthController" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#95E3E7;swimlaneFillColor=#FFFFFF;strokeColor=#03464A;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="AuthController" vertex="1">
+          <mxGeometry height="165" width="460" x="2750" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="A-AuthController-body" parent="A-AuthController" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@RestController /api/auth&lt;br&gt;--- attributes ---&lt;br&gt;- authService: AuthService&lt;br&gt;--- operations ---&lt;br&gt;+ login(AuthLoginRequest): ResponseEntity&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="460" as="geometry" />
+        </mxCell>
+        <mxCell id="A-UserController" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#95E3E7;swimlaneFillColor=#FFFFFF;strokeColor=#03464A;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="UserController" vertex="1">
+          <mxGeometry height="165" width="460" x="3250" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="A-UserController-body" parent="A-UserController" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@RestController /api/users&lt;br&gt;--- attributes ---&lt;br&gt;- userService: UserService&lt;br&gt;--- operations ---&lt;br&gt;+ getAllUsers(): List&lt;br&gt;+ createUser(UserCreateRequest): UserResponse&lt;br&gt;+ deactivateUser(id): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="460" as="geometry" />
+        </mxCell>
+        <mxCell id="A-ProductController" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#95E3E7;swimlaneFillColor=#FFFFFF;strokeColor=#03464A;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="ProductController" vertex="1">
+          <mxGeometry height="226" width="460" x="2750" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="A-ProductController-body" parent="A-ProductController" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@RestController /api/products&lt;br&gt;--- attributes ---&lt;br&gt;- productService: ProductService&lt;br&gt;--- operations ---&lt;br&gt;+ getAllProducts(): List&lt;br&gt;+ createProduct(ProductRequest): Product&lt;br&gt;+ updateProduct(id, ProductUpdateRequest): Product&lt;br&gt;+ addVariant(id, ProductVariantRequest): Product&lt;br&gt;+ updateVariant(productId, variantId, ProductVariantRequest): Product&lt;br&gt;+ activate/deactivate product or variant&lt;/div&gt;" vertex="1">
+          <mxGeometry height="190" relative="1" width="460" as="geometry" />
+        </mxCell>
+        <mxCell id="A-InventoryController" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#95E3E7;swimlaneFillColor=#FFFFFF;strokeColor=#03464A;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="InventoryController" vertex="1">
+          <mxGeometry height="250" width="460" x="3250" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="A-InventoryController-body" parent="A-InventoryController" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@RestController /api/inventory&lt;br&gt;--- attributes ---&lt;br&gt;- inventoryService: InventoryService&lt;br&gt;- movementRepository: InventoryMovementRepository&lt;br&gt;- productRepository: ProductRepository&lt;br&gt;- variantRepository: ProductVariantRepository&lt;br&gt;- userRepository: UserRepository&lt;br&gt;--- operations ---&lt;br&gt;+ getInventory(): List&lt;br&gt;+ getMovements(): List&lt;br&gt;+ registerEntry(InventoryEntryRequest, Principal): InventoryMovement&lt;/div&gt;" vertex="1">
+          <mxGeometry height="214" relative="1" width="460" as="geometry" />
+        </mxCell>
+        <mxCell id="A-SaleController" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#95E3E7;swimlaneFillColor=#FFFFFF;strokeColor=#03464A;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="SaleController" vertex="1">
+          <mxGeometry height="165" width="460" x="2750" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="A-SaleController-body" parent="A-SaleController" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@RestController /api/sales&lt;br&gt;--- attributes ---&lt;br&gt;- saleService: SaleService&lt;br&gt;--- operations ---&lt;br&gt;+ createSale(SaleRequest, Principal): Sale&lt;br&gt;+ getReceipt(receiptNumber): SaleReceiptResponse&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="460" as="geometry" />
+        </mxCell>
+        <mxCell id="A-HolaController" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#95E3E7;swimlaneFillColor=#FFFFFF;strokeColor=#03464A;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="HolaController" vertex="1">
+          <mxGeometry height="165" width="460" x="3250" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="A-HolaController-body" parent="A-HolaController" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@RestController&lt;br&gt;--- operations ---&lt;br&gt;+ hola(): String&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="460" as="geometry" />
+        </mxCell>
+        <mxCell id="A-AuthService" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#FFD09E;swimlaneFillColor=#FFFFFF;strokeColor=#572F04;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="AuthService" vertex="1">
+          <mxGeometry height="165" width="470" x="3790" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="A-AuthService-body" parent="A-AuthService" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@Service&lt;br&gt;--- attributes ---&lt;br&gt;- userRepository: UserRepository&lt;br&gt;- jwtService: JwtService&lt;br&gt;- authenticationManager: AuthenticationManager&lt;br&gt;--- operations ---&lt;br&gt;+ login(AuthLoginRequest): AuthResponse&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="470" as="geometry" />
+        </mxCell>
+        <mxCell id="A-UserService" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#FFD09E;swimlaneFillColor=#FFFFFF;strokeColor=#572F04;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="UserService" vertex="1">
+          <mxGeometry height="202" width="470" x="3790" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="A-UserService-body" parent="A-UserService" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@Service&lt;br&gt;--- attributes ---&lt;br&gt;- userRepository: UserRepository&lt;br&gt;- roleRepository: RoleRepository&lt;br&gt;- passwordEncoder: PasswordEncoder&lt;br&gt;--- operations ---&lt;br&gt;+ getAllUsers(): List&lt;br&gt;+ createUser(UserCreateRequest): UserResponse&lt;br&gt;+ deactivateUser(id): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="166" relative="1" width="470" as="geometry" />
+        </mxCell>
+        <mxCell id="A-ProductService" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#FFD09E;swimlaneFillColor=#FFFFFF;strokeColor=#572F04;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="ProductService" vertex="1">
+          <mxGeometry height="250" width="470" x="3790" y="712" as="geometry" />
+        </mxCell>
+        <mxCell id="A-ProductService-body" parent="A-ProductService" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@Service&lt;br&gt;--- attributes ---&lt;br&gt;- productRepository: ProductRepository&lt;br&gt;- productVariantRepository: ProductVariantRepository&lt;br&gt;--- operations ---&lt;br&gt;+ createProduct(ProductRequest): Product&lt;br&gt;+ getAllProducts(): List&lt;br&gt;+ updateProduct(id, ProductUpdateRequest): Product&lt;br&gt;+ addVariant(productId, ProductVariantRequest): Product&lt;br&gt;+ updateVariant(productId, variantId, ProductVariantRequest): Product&lt;br&gt;+ activate/deactivate product or variant&lt;/div&gt;" vertex="1">
+          <mxGeometry height="214" relative="1" width="470" as="geometry" />
+        </mxCell>
+        <mxCell id="A-InventoryService" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#FFD09E;swimlaneFillColor=#FFFFFF;strokeColor=#572F04;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="InventoryService" vertex="1">
+          <mxGeometry height="165" width="470" x="3790" y="1017" as="geometry" />
+        </mxCell>
+        <mxCell id="A-InventoryService-body" parent="A-InventoryService" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@Service&lt;br&gt;--- attributes ---&lt;br&gt;- productVariantRepository: ProductVariantRepository&lt;br&gt;- inventoryMovementRepository: InventoryMovementRepository&lt;br&gt;- userRepository: UserRepository&lt;br&gt;--- operations ---&lt;br&gt;+ registerEntry(InventoryEntryRequest, username): InventoryMovement&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="470" as="geometry" />
+        </mxCell>
+        <mxCell id="A-SaleService" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#FFD09E;swimlaneFillColor=#FFFFFF;strokeColor=#572F04;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="SaleService" vertex="1">
+          <mxGeometry height="226" width="470" x="3790" y="1237" as="geometry" />
+        </mxCell>
+        <mxCell id="A-SaleService-body" parent="A-SaleService" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@Service / @Transactional&lt;br&gt;--- attributes ---&lt;br&gt;- saleRepository: SaleRepository&lt;br&gt;- productVariantRepository: ProductVariantRepository&lt;br&gt;- userRepository: UserRepository&lt;br&gt;- inventoryMovementRepository: InventoryMovementRepository&lt;br&gt;- paymentRepository: PaymentRepository&lt;br&gt;--- operations ---&lt;br&gt;+ createSale(SaleRequest, username): Sale&lt;br&gt;+ getReceipt(receiptNumber): SaleReceiptResponse&lt;/div&gt;" vertex="1">
+          <mxGeometry height="190" relative="1" width="470" as="geometry" />
+        </mxCell>
+        <mxCell id="A-UserRepository" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#d5e8d4;swimlaneFillColor=#FFFFFF;strokeColor=#82b366;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="interface UserRepository" vertex="1">
+          <mxGeometry height="165" width="490" x="4330" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="A-UserRepository-body" parent="A-UserRepository" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;JpaRepository&amp;lt;User, Long&amp;gt;&lt;br&gt;--- operations ---&lt;br&gt;+ findByUsername(username): Optional&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="490" as="geometry" />
+        </mxCell>
+        <mxCell id="A-RoleRepository" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#d5e8d4;swimlaneFillColor=#FFFFFF;strokeColor=#82b366;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="interface RoleRepository" vertex="1">
+          <mxGeometry height="165" width="490" x="4860" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="A-RoleRepository-body" parent="A-RoleRepository" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;JpaRepository&amp;lt;Role, Integer&amp;gt;&lt;br&gt;--- operations ---&lt;br&gt;+ findByName(name): Optional&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="490" as="geometry" />
+        </mxCell>
+        <mxCell id="A-ProductRepository" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#d5e8d4;swimlaneFillColor=#FFFFFF;strokeColor=#82b366;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="interface ProductRepository" vertex="1">
+          <mxGeometry height="165" width="490" x="4330" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="A-ProductRepository-body" parent="A-ProductRepository" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;JpaRepository&amp;lt;Product, Long&amp;gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="490" as="geometry" />
+        </mxCell>
+        <mxCell id="A-ProductVariantRepository" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#d5e8d4;swimlaneFillColor=#FFFFFF;strokeColor=#82b366;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="interface ProductVariantRepository" vertex="1">
+          <mxGeometry height="165" width="490" x="4860" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="A-ProductVariantRepository-body" parent="A-ProductVariantRepository" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;JpaRepository&amp;lt;ProductVariant, Long&amp;gt;&lt;br&gt;--- operations ---&lt;br&gt;+ findBySku(sku): Optional&lt;br&gt;+ findBySkuForUpdate(sku): Optional&lt;br&gt;+ existsBySkuAndIdNot(sku, id): boolean&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="490" as="geometry" />
+        </mxCell>
+        <mxCell id="A-InventoryMovementRepository" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#d5e8d4;swimlaneFillColor=#FFFFFF;strokeColor=#82b366;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="interface InventoryMovementRepository" vertex="1">
+          <mxGeometry height="165" width="490" x="4330" y="675" as="geometry" />
+        </mxCell>
+        <mxCell id="A-InventoryMovementRepository-body" parent="A-InventoryMovementRepository" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;JpaRepository&amp;lt;InventoryMovement, Integer&amp;gt;&lt;br&gt;--- operations ---&lt;br&gt;+ findTop100ByOrderByCreatedAtDesc(): List&lt;br&gt;+ findAllByTypeOrderByCreatedAtDesc(type): List&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="490" as="geometry" />
+        </mxCell>
+        <mxCell id="A-SaleRepository" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#d5e8d4;swimlaneFillColor=#FFFFFF;strokeColor=#82b366;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="interface SaleRepository" vertex="1">
+          <mxGeometry height="165" width="490" x="4860" y="675" as="geometry" />
+        </mxCell>
+        <mxCell id="A-SaleRepository-body" parent="A-SaleRepository" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;JpaRepository&amp;lt;Sale, Integer&amp;gt;&lt;br&gt;--- operations ---&lt;br&gt;+ findByReceiptNumber(number): Optional&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="490" as="geometry" />
+        </mxCell>
+        <mxCell id="A-PaymentRepository" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#d5e8d4;swimlaneFillColor=#FFFFFF;strokeColor=#82b366;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="interface PaymentRepository" vertex="1">
+          <mxGeometry height="165" width="490" x="4860" y="895" as="geometry" />
+        </mxCell>
+        <mxCell id="A-PaymentRepository-body" parent="A-PaymentRepository" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;JpaRepository&amp;lt;Payment, Integer&amp;gt;&lt;br&gt;--- operations ---&lt;br&gt;+ findBySaleId(saleId): Optional&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="490" as="geometry" />
+        </mxCell>
+        <mxCell id="A-SaleItemRepository" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#d5e8d4;swimlaneFillColor=#FFFFFF;strokeColor=#82b366;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="interface SaleItemRepository" vertex="1">
+          <mxGeometry height="165" width="490" x="4330" y="895" as="geometry" />
+        </mxCell>
+        <mxCell id="A-SaleItemRepository-body" parent="A-SaleItemRepository" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;JpaRepository&amp;lt;SaleItem, Long&amp;gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="490" as="geometry" />
+        </mxCell>
+        <mxCell id="A-SupaclothesApplication" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#dae8fc;swimlaneFillColor=#FFFFFF;strokeColor=#6c8ebf;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="application SupaclothesApplication" vertex="1">
+          <mxGeometry height="165" width="520" x="5410" y="1006" as="geometry" />
+        </mxCell>
+        <mxCell id="A-SupaclothesApplication-body" parent="A-SupaclothesApplication" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@SpringBootApplication&lt;br&gt;--- attributes ---&lt;br&gt;- createRoleIfMissing(...): Role&lt;br&gt;--- operations ---&lt;br&gt;+ main(args): void&lt;br&gt;+ initAdminUser(...): CommandLineRunner&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="520" as="geometry" />
+        </mxCell>
+        <mxCell id="T-AuthLoginRequest" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="AuthLoginRequest" vertex="1">
+          <mxGeometry height="165" width="450" x="1230" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="T-AuthLoginRequest-body" parent="T-AuthLoginRequest" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;class DTO&lt;br&gt;--- attributes ---&lt;br&gt;- username: String&lt;br&gt;- password: String&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="T-InventoryEntryRequest" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="InventoryEntryRequest" vertex="1">
+          <mxGeometry height="165" width="450" x="2210" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="T-InventoryEntryRequest-body" parent="T-InventoryEntryRequest" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;record&lt;br&gt;--- operations ---&lt;br&gt;+ sku: String&lt;br&gt;+ quantity: int&lt;br&gt;+ reference: String&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="T-ProductRequest" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="ProductRequest" vertex="1">
+          <mxGeometry height="165" width="450" x="1720" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="T-ProductRequest-body" parent="T-ProductRequest" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;record&lt;br&gt;--- operations ---&lt;br&gt;+ name: String&lt;br&gt;+ category: String&lt;br&gt;+ description: String&lt;br&gt;+ variants: List&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="T-ProductUpdateRequest" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="ProductUpdateRequest" vertex="1">
+          <mxGeometry height="165" width="450" x="2210" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="T-ProductUpdateRequest-body" parent="T-ProductUpdateRequest" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;record&lt;br&gt;--- operations ---&lt;br&gt;+ name: String&lt;br&gt;+ category: String&lt;br&gt;+ description: String&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="T-ProductVariantRequest" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="ProductVariantRequest" vertex="1">
+          <mxGeometry height="202" width="450" x="1230" y="784" as="geometry" />
+        </mxCell>
+        <mxCell id="T-ProductVariantRequest-body" parent="T-ProductVariantRequest" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;record&lt;br&gt;--- operations ---&lt;br&gt;+ sku: String&lt;br&gt;+ size: String&lt;br&gt;+ color: String&lt;br&gt;+ price: BigDecimal&lt;br&gt;+ taxRate: BigDecimal&lt;br&gt;+ minStock: int&lt;/div&gt;" vertex="1">
+          <mxGeometry height="166" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="T-SaleItemRequest" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="SaleItemRequest" vertex="1">
+          <mxGeometry height="165" width="450" x="1720" y="784" as="geometry" />
+        </mxCell>
+        <mxCell id="T-SaleItemRequest-body" parent="T-SaleItemRequest" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;record&lt;br&gt;--- operations ---&lt;br&gt;+ sku: String&lt;br&gt;+ quantity: int&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="T-SaleRequest" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="SaleRequest" vertex="1">
+          <mxGeometry height="165" width="450" x="2210" y="784" as="geometry" />
+        </mxCell>
+        <mxCell id="T-SaleRequest-body" parent="T-SaleRequest" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;record&lt;br&gt;--- operations ---&lt;br&gt;+ customerId: Integer&lt;br&gt;+ items: List&lt;br&gt;+ paymentMethod: String&lt;br&gt;+ amountReceived: BigDecimal&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="T-UserCreateRequest" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="UserCreateRequest" vertex="1">
+          <mxGeometry height="165" width="450" x="1230" y="1394" as="geometry" />
+        </mxCell>
+        <mxCell id="T-UserCreateRequest-body" parent="T-UserCreateRequest" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;record&lt;br&gt;--- operations ---&lt;br&gt;+ username: String&lt;br&gt;+ password: String&lt;br&gt;+ fullName: String&lt;br&gt;+ roleName: String&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="T-UserCreateDTO" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="UserCreateDTO" vertex="1">
+          <mxGeometry height="165" width="450" x="2210" y="1041" as="geometry" />
+        </mxCell>
+        <mxCell id="T-UserCreateDTO-body" parent="T-UserCreateDTO" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;record [definido; actualmente sin uso]&lt;br&gt;--- operations ---&lt;br&gt;+ username: String&lt;br&gt;+ password: String&lt;br&gt;+ fullName: String&lt;br&gt;+ role: String&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="T-AuthResponse" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="AuthResponse" vertex="1">
+          <mxGeometry height="165" width="450" x="1720" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="T-AuthResponse-body" parent="T-AuthResponse" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;class DTO&lt;br&gt;--- attributes ---&lt;br&gt;- token: String&lt;br&gt;- role: String&lt;br&gt;- fullName: String&lt;/div&gt;" vertex="1">
+          <mxGeometry height="129" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="T-InventoryMovementResponse" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="InventoryMovementResponse" vertex="1">
+          <mxGeometry height="274" width="450" x="1230" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="T-InventoryMovementResponse-body" parent="T-InventoryMovementResponse" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;record&lt;br&gt;--- operations ---&lt;br&gt;+ id: int&lt;br&gt;+ sku: String&lt;br&gt;+ type: String&lt;br&gt;+ quantity: int&lt;br&gt;+ previousStock: int&lt;br&gt;+ resultingStock: int&lt;br&gt;+ username: String&lt;br&gt;+ reference: String&lt;br&gt;+ createdAt: LocalDateTime&lt;/div&gt;" vertex="1">
+          <mxGeometry height="238" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="T-SaleReceiptResponse" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="SaleReceiptResponse" vertex="1">
+          <mxGeometry height="298" width="450" x="1230" y="1041" as="geometry" />
+        </mxCell>
+        <mxCell id="T-SaleReceiptResponse-body" parent="T-SaleReceiptResponse" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;record&lt;br&gt;--- operations ---&lt;br&gt;+ receiptNumber: String&lt;br&gt;+ createdAt: LocalDateTime&lt;br&gt;+ sellerName: String&lt;br&gt;+ items: List&lt;br&gt;+ subtotal: BigDecimal&lt;br&gt;+ taxTotal: BigDecimal&lt;br&gt;+ total: BigDecimal&lt;br&gt;+ paymentMethod: String&lt;br&gt;+ amountReceived: BigDecimal&lt;br&gt;+ changeGiven: BigDecimal&lt;/div&gt;" vertex="1">
+          <mxGeometry height="262" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="T-SaleReceiptResponse.Item" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="SaleReceiptResponse.Item" vertex="1">
+          <mxGeometry height="226" width="450" x="1720" y="1041" as="geometry" />
+        </mxCell>
+        <mxCell id="T-SaleReceiptResponse.Item-body" parent="T-SaleReceiptResponse.Item" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;record anidado&lt;br&gt;--- operations ---&lt;br&gt;+ sku: String&lt;br&gt;+ productName: String&lt;br&gt;+ size: String&lt;br&gt;+ color: String&lt;br&gt;+ quantity: int&lt;br&gt;+ unitPrice: BigDecimal&lt;br&gt;+ lineTotal: BigDecimal&lt;/div&gt;" vertex="1">
+          <mxGeometry height="190" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="T-UserResponse" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#BB9AE7;swimlaneFillColor=#FFFFFF;strokeColor=#705396;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="UserResponse" vertex="1">
+          <mxGeometry height="178" width="450" x="1720" y="1394" as="geometry" />
+        </mxCell>
+        <mxCell id="T-UserResponse-body" parent="T-UserResponse" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;record&lt;br&gt;--- operations ---&lt;br&gt;+ id: Long&lt;br&gt;+ username: String&lt;br&gt;+ fullName: String&lt;br&gt;+ role: String&lt;br&gt;+ active: boolean&lt;/div&gt;" vertex="1">
+          <mxGeometry height="142" relative="1" width="450" as="geometry" />
+        </mxCell>
+        <mxCell id="S-SecurityConfig" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#f8cecc;swimlaneFillColor=#FFFFFF;strokeColor=#b85450;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="SecurityConfig" vertex="1">
+          <mxGeometry height="226" width="520" x="5410" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="S-SecurityConfig-body" parent="S-SecurityConfig" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@Configuration / @EnableWebSecurity&lt;br&gt;--- attributes ---&lt;br&gt;- userRepository: UserRepository&lt;br&gt;- jwtService: JwtService&lt;br&gt;--- operations ---&lt;br&gt;+ securityFilterChain(HttpSecurity): SecurityFilterChain&lt;br&gt;+ userDetailsService(): UserDetailsService&lt;br&gt;+ authenticationProvider(): AuthenticationProvider&lt;br&gt;+ passwordEncoder(): PasswordEncoder&lt;br&gt;+ authenticationManager(config): AuthenticationManager&lt;/div&gt;" vertex="1">
+          <mxGeometry height="190" relative="1" width="520" as="geometry" />
+        </mxCell>
+        <mxCell id="S-JwtAuthenticationFilter" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#f8cecc;swimlaneFillColor=#FFFFFF;strokeColor=#b85450;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="filter JwtAuthenticationFilter" vertex="1">
+          <mxGeometry height="178" width="520" x="5410" y="516" as="geometry" />
+        </mxCell>
+        <mxCell id="S-JwtAuthenticationFilter-body" parent="S-JwtAuthenticationFilter" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;OncePerRequestFilter&lt;br&gt;--- attributes ---&lt;br&gt;- jwtService: JwtService&lt;br&gt;- userDetailsService: UserDetailsService&lt;br&gt;- rejectRequest(response): void&lt;br&gt;--- operations ---&lt;br&gt;+ doFilterInternal(request, response, chain): void&lt;br&gt;+ shouldNotFilter(request): boolean&lt;/div&gt;" vertex="1">
+          <mxGeometry height="142" relative="1" width="520" as="geometry" />
+        </mxCell>
+        <mxCell id="S-JwtService" parent="1" style="swimlane;html=1;startSize=34;horizontal=1;fillColor=#f8cecc;swimlaneFillColor=#FFFFFF;strokeColor=#b85450;strokeWidth=2;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#222222;align=center;verticalAlign=middle;collapsible=0;" value="JwtService" vertex="1">
+          <mxGeometry height="202" width="520" x="5410" y="749" as="geometry" />
+        </mxCell>
+        <mxCell id="S-JwtService-body" parent="S-JwtService" style="text;html=1;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=6;fontFamily=Arial;fontSize=12;fontColor=#222222;" value="&lt;div style=&quot;font-family:Arial;font-size:12px;color:#222222;line-height:1.3&quot;&gt;@Service&lt;br&gt;--- attributes ---&lt;br&gt;- extractAllClaims(token): Claims&lt;br&gt;- getSignInKey(): Key&lt;br&gt;--- operations ---&lt;br&gt;+ generateToken(UserDetails): String&lt;br&gt;+ generateToken(extraClaims, UserDetails): String&lt;br&gt;+ extractUsername(token): String&lt;br&gt;+ isTokenValid(token, UserDetails): boolean&lt;/div&gt;" vertex="1">
+          <mxGeometry height="166" relative="1" width="520" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-1" edge="1" parent="1" source="D-Role" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#222222;endArrow=none;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.25;" target="D-User" value="1  |  role  |  0..*">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-2" edge="1" parent="1" source="D-Product" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#222222;startArrow=diamond;startFill=1;endArrow=none;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" target="D-ProductVariant" value="1  |  variants  |  1..*">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="725" />
+              <mxPoint x="600" y="890" />
+              <mxPoint x="330" y="890" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-3" edge="1" parent="1" source="D-Sale" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#222222;startArrow=diamond;startFill=1;endArrow=none;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" target="D-SaleItem" value="1  |  items  |  1..*">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="1114" />
+              <mxPoint x="600" y="1340" />
+              <mxPoint x="330" y="1340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-4" edge="1" parent="1" source="D-ProductVariant" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#222222;endArrow=none;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="D-SaleItem" value="1  |  variant  |  0..*">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-5" edge="1" parent="1" source="D-Sale" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#8A5A2B;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="D-Payment" value="1  |  saleId unique  |  1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-6" edge="1" parent="1" source="D-User" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#8A5A2B;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" target="D-Sale" value="1  |  sellerId  |  0..*">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1170" y="384" />
+              <mxPoint x="1170" y="1114" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-7" edge="1" parent="1" source="D-Customer" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#8A5A2B;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.25;" target="D-Sale" value="0..1  |  customerId  |  0..*">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="701" />
+              <mxPoint x="600" y="1015" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-8" edge="1" parent="1" source="D-User" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#8A5A2B;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.3;entryX=0.5;entryY=1;" target="D-InventoryMovement" value="1  |  userId  |  0..*">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1185" y="324" />
+              <mxPoint x="1185" y="2095" />
+              <mxPoint x="330" y="2095" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-9" edge="1" parent="1" source="D-ProductVariant" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#8A5A2B;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" target="D-InventoryMovement" value="1  |  variantId  |  0..*">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="40" y="1090" />
+              <mxPoint x="40" y="1904" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-10" edge="1" parent="1" source="D-Sale" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#8A5A2B;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.7;entryX=0.8;entryY=1;" target="D-InventoryMovement" value="0..1  |  saleId  |  0..*">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1170" y="1193" />
+              <mxPoint x="1170" y="2110" />
+              <mxPoint x="480" y="2110" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-11" edge="1" parent="1" source="A-AuthController" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#D79B00;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=0;entryX=0.5;entryY=0;" target="A-AuthService" value="uses">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2980" y="180" />
+              <mxPoint x="4025" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-12" edge="1" parent="1" source="A-UserController" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#D79B00;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="A-UserService" value="uses">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3750" y="317" />
+              <mxPoint x="3750" y="556" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-13" edge="1" parent="1" source="A-ProductController" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#D79B00;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" target="A-ProductService" value="uses">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2980" y="700" />
+              <mxPoint x="3750" y="700" />
+              <mxPoint x="3750" y="837" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-14" edge="1" parent="1" source="A-InventoryController" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#D79B00;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" target="A-InventoryService" value="uses">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3480" y="980" />
+              <mxPoint x="3750" y="980" />
+              <mxPoint x="3750" y="1099" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-15" edge="1" parent="1" source="A-SaleController" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;jumpStyle=arc;strokeColor=#D79B00;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=12;fontColor=#3D3429;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" target="A-SaleService" value="uses">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2980" y="950" />
+              <mxPoint x="3750" y="950" />
+              <mxPoint x="3750" y="1350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-16" edge="1" parent="1" source="A-InventoryController" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;

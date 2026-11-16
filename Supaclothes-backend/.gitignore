@@ -1,0 +1,6 @@
+/config/supaclothes-neon.properties*
+/config/supaclothes-local.properties
+target/
+node_modules/
+.expo/
+.env.local
