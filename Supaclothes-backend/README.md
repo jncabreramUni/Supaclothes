@@ -41,11 +41,11 @@ Crea un **Web Service** con runtime **Docker** y plan **Free**. Conecta el repos
 | `SPRING_DATASOURCE_USERNAME` | Usuario de Neon con permisos para crear y actualizar el esquema. |
 | `SPRING_DATASOURCE_PASSWORD` | Contraseña de ese usuario de Neon. |
 | `SUPACLOTHES_JWT_SECRET` | Clave aleatoria estable en Base64 de al menos 32 bytes decodificados. |
-| `SUPACLOTHES_ADMIN_PASSWORD` | Contraseña fuerte para `admin` en la primera puesta en marcha con una tabla de usuarios vacía. |
+| `SUPACLOTHES_ADMIN_PASSWORD` | Contraseña fuerte de hasta 72 bytes UTF-8 para `admin` en la primera puesta en marcha con una tabla de usuarios vacía. |
 
 Usa los tres valores `spring.datasource.*` de `config/supaclothes-neon.properties` para completar las variables JDBC. Configúralas en **Environment** de Render. Puedes generar la clave JWT en PowerShell con `[Convert]::ToBase64String([System.Security.Cryptography.RandomNumberGenerator]::GetBytes(32))`.
 
-Hibernate crea o actualiza el esquema al arrancar. Se garantizan los roles `ADMIN`, `VENDEDOR` y `BODEGA`. La contraseña de las cuentas existentes se conserva si vuelves a desplegar.
+Hibernate crea o actualiza el esquema al arrancar. Se crean los roles `ADMIN`, `VENDEDOR` y `BODEGA` que falten. Si la tabla de usuarios está vacía y la contraseña inicial falta, está en blanco o supera el límite de BCrypt, el servidor arranca y registra `Administrador inicial pendiente`. Define una contraseña válida en Render y vuelve a desplegar para habilitar el primer acceso. La contraseña de las cuentas existentes se conserva si vuelves a desplegar.
 
 Para verificar la actividad 57 de la Matriz RACI, comprueba el inicio del servicio y autentícate en `/api/auth/admin/login` contra la cuenta inicial. Para la actividad 58, abre `/` en la misma URL pública y comprueba la carga de los recursos y el acceso desde la web. Puedes usar `/` como ruta de comprobación de salud en Render.
 
