@@ -1,0 +1,11 @@
+CA-10-04 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: PDF identificado como comprobante interno, con los datos y sin identificadores fiscales.
+POST /api/sales -> 201
+POST /api/auth/login -> 200
+GET /api/products -> 200
+GET /api/products -> 200
+GET /api/sales/FAC-20261116233024110-26D984B3 -> 200
+GET /api/sales/FAC-20261116233024110-26D984B3/return -> 401
+GET /api/products -> 200
+GET /api/sales -> 200
+{"pdfBytes":1940,"receipt":"FAC-20261116233024110-26D984B3"}

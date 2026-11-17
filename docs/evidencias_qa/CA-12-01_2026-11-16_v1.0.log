@@ -1,0 +1,14 @@
+CA-12-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: HTTP esperado 403; HTTP observado 401
+POST /api/sales -> 201
+POST /api/sales -> 201
+GET /api/sales?from=2026-11-16&to=2026-11-16&receipt=FAC-20261116232712909-2107AB4F -> 200
+GET /api/sales?from=2026-11-16&to=2026-11-17 -> 200
+GET /api/sales?from=2026-11-16&to=2026-11-16&receipt=FAC-20261116232712909-2107AB4F -> 200
+GET /api/sales?from=2026-11-16&to=2026-11-17 -> 200
+GET /api/sales -> 401
+AssertionError [ERR_ASSERTION]: HTTP esperado 403; HTTP observado 401
+    at status (<ruta-local>\target\qa20261116\common.cjs:35:12)
+    at CA-12-01 (<ruta-local>\target\qa20261116\api-qa.cjs:260:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async run (<ruta-local>\target\qa20261116\common.cjs:96:17)

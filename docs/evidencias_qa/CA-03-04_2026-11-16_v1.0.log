@@ -1,0 +1,9 @@
+CA-03-04 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: El precio nuevo es 60000 COP; el comprobante histórico mantiene los datos originales.
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232639094-E0FD352D -> 200
+GET /api/products -> 200
+PUT /api/products/1 -> 200
+PUT /api/products/1/variants/1 -> 200
+GET /api/products -> 200
+GET /api/sales/FAC-20261116232639094-E0FD352D -> 200

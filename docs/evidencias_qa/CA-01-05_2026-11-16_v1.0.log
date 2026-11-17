@@ -1,0 +1,4 @@
+CA-01-05 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: El usuario inactivo fue rechazado (401) y el catálogo quedó protegido.
+POST /api/auth/login -> 401
+GET /api/products -> 401

@@ -1,0 +1,6 @@
+CA-08-04 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Tarjeta y transferencia persistidas como medios independientes con cambio cero.
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232700862-86BA0232 -> 200
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232700943-257881D5 -> 200

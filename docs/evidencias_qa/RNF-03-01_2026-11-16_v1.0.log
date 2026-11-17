@@ -1,0 +1,9 @@
+RNF-03-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Fecha, usuario y acción persistidos. El fallo controlado (HTTP 401) quedó registrado con el nombre de la restricción.
+POST /api/inventory/entries -> 201
+POST /api/sales -> 201
+POST /api/sales/FAC-20261116232723689-6C61A727/return -> 201
+POST /api/inventory/entries -> 401
+{"constraint":"inventory_movement.qa_injected_failure (CHECK false NOT VALID)","http":401}
+{"before":{"stocks":"QA-BORDE-0=0\r\nQA-BORDE-2=2\r\nQA-BORDE-3=3\r\nQA-BORDE-4=4\r\nQA-CAM-M-AZ=15\r\nQA-INACTIVO=5\r\nQA-JEAN-32-NE=5","inventory_movement":11,"payment":1,"sale_item":2,"sale_return":1,"sale":1},"after":{"stocks":"QA-BORDE-0=0\r\nQA-BORDE-2=2\r\nQA-BORDE-3=3\r\nQA-BORDE-4=4\r\nQA-CAM-M-AZ=15\r\nQA-INACTIVO=5\r\nQA-JEAN-32-NE=5","inventory_movement":11,"payment":1,"sale_item":2,"sale_return":1,"sale":1}}
+["2026-11-16T23:27:25.010-05:00 ERROR 14492 --- [supaclothes] [.1-62622-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERROR: new row for relation \"inventory_movement\" violates check constraint \"qa_injected_failure\"","  [detalle omitido]","org.postgresql.util.PSQLException: ERROR: new row for relation \"inventory_movement\" violates check constraint \"qa_injected_failure\""]

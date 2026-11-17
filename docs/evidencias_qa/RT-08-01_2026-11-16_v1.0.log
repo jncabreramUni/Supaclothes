@@ -1,0 +1,8 @@
+RT-08-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: El artefacto web permite acceso e inventario, pero app.js se sirve sin minificar. Hermes y R8 se constatan en configuración Android, falta APK de release inspeccionable.
+{"jsStatus":200,"jsBytes":82954,"newlineCount":1693,"hermes":true,"r8":true}
+AssertionError [ERR_ASSERTION]: El artefacto web permite acceso e inventario, pero app.js se sirve sin minificar. Hermes y R8 se constatan en configuración Android, falta APK de release inspeccionable.
+    at buildCase (<ruta-local>\target\qa20261116\technical.cjs:176:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async run (<ruta-local>\target\qa20261116\common.cjs:96:17)
+    at async <ruta-local>\target\qa20261116\technical.cjs:183:163

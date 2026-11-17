@@ -1,0 +1,8 @@
+CA-02-05 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: La desactivación impidió el login y el comprobante histórico es idéntico.
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232637203-9A58A28D -> 200
+GET /api/users -> 200
+PATCH /api/users/2/deactivate -> 204
+POST /api/auth/login -> 401
+GET /api/sales/FAC-20261116232637203-9A58A28D -> 200

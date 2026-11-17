@@ -1,0 +1,5 @@
+RNF-10-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Cliente sintético con campos previstos; Bodega recibe HTTP 401 sin datos del cliente.
+POST /api/customers -> 201
+GET /api/customers?q=QA-PRIV -> 200
+GET /api/customers?q=QA-PRIV -> 401

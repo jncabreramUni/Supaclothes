@@ -1,0 +1,9 @@
+CA-04-03 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: HTTP esperado 400/403/404/409/422; HTTP observado 401
+POST /api/inventory/entries -> 401
+{"before":{"stocks":"QA-BORDE-0=0\r\nQA-BORDE-2=2\r\nQA-BORDE-3=3\r\nQA-BORDE-4=4\r\nQA-CAM-M-AZ=10\r\nQA-INACTIVO=5\r\nQA-JEAN-32-NE=5","inventory_movement":6,"payment":0,"sale_item":0,"sale_return":0,"sale":0},"after":{"stocks":"QA-BORDE-0=0\r\nQA-BORDE-2=2\r\nQA-BORDE-3=3\r\nQA-BORDE-4=4\r\nQA-CAM-M-AZ=10\r\nQA-INACTIVO=5\r\nQA-JEAN-32-NE=5","inventory_movement":6,"payment":0,"sale_item":0,"sale_return":0,"sale":0}}
+AssertionError [ERR_ASSERTION]: HTTP esperado 400/403/404/409/422; HTTP observado 401
+    at status (<ruta-local>\target\qa20261116\common.cjs:35:12)
+    at rejection (<ruta-local>\target\qa20261116\api-qa.cjs:4:20)
+    at CA-04-03 (<ruta-local>\target\qa20261116\api-qa.cjs:134:109)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)

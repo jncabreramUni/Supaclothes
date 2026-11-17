@@ -1,0 +1,12 @@
+CA-14-02 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: Ventas y alertas concilian; el dashboard carece de ranking por unidades vendido.
+POST /api/sales -> 201
+GET /api/reports/dashboard?from=2026-11-16&to=2026-11-16 -> 200
+GET /api/sales?from=2026-11-16&to=2026-11-16 -> 200
+GET /api/reports/inventory -> 200
+{"d":{"from":"2026-11-16","to":"2026-11-16","salesCount":1,"grossSales":180000,"refunds":0,"netSales":180000,"stockUnits":26,"lowStockCount":3,"daily":[{"date":"2026-11-16","sales":180000,"refunds":0,"net":180000}]},"ventas":1,"alertas":3}
+AssertionError [ERR_ASSERTION]: Ventas y alertas concilian; el dashboard carece de ranking por unidades vendido.
+    at CA-14-02 (<ruta-local>\target\qa20261116\api-qa.cjs:294:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async run (<ruta-local>\target\qa20261116\common.cjs:96:17)
+    at async <ruta-local>\target\qa20261116\api-qa.cjs:354:48

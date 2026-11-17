@@ -1,0 +1,9 @@
+CA-06-04 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: HTTP esperado 400/403/404/409/422; HTTP observado 401
+POST /api/customers -> 401
+GET /api/customers?q=QA-DOC-0001 -> 200
+AssertionError [ERR_ASSERTION]: HTTP esperado 400/403/404/409/422; HTTP observado 401
+    at status (<ruta-local>\target\qa20261116\common.cjs:35:12)
+    at rejection (<ruta-local>\target\qa20261116\api-qa.cjs:4:20)
+    at CA-06-04 (<ruta-local>\target\qa20261116\api-qa.cjs:156:104)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)

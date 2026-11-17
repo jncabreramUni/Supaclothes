@@ -1,0 +1,14 @@
+CA-15-03 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: La web valida el rango y se recupera, pero la API devuelve 401 en vez de 400. 401 !== 400 
+POST /api/auth/admin/login -> 200
+GET /api/products -> 200
+GET /api/reports/dashboard -> 200
+GET /api/reports/sales -> 200
+GET /api/reports/sales?from=2026-11-17&to=2026-11-16 -> 401
+{"invalid":401}
+GET /api/reports/sales -> 200
+AssertionError [ERR_ASSERTION]: La web valida el rango y se recupera, pero la API devuelve 401 en vez de 400.
+
+401 !== 400
+
+    at CA-15-03 (<ruta-local>\target\qa20261116\browser.cjs:203:12)

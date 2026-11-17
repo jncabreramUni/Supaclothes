@@ -1,0 +1,13 @@
+RNF-09-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Se cortó la respuesta real tras HTTP 201; reintento con la misma operación conservó una venta y restó una sola unidad.
+POST /api/inventory/entries -> 401
+POST /api/auth/login -> 200
+GET /api/products -> 200
+GET /api/products -> 200
+POST /api/sales -> 201
+GET /api/products -> 200
+GET /api/inventory/movements -> 200
+GET /api/sales/FAC-20261116233716442-366C468F -> 200
+GET /api/sales/FAC-20261116233716442-366C468F/return -> 401
+GET /api/products -> 200
+GET /api/sales -> 200

@@ -1,0 +1,12 @@
+CA-07-03 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: Se observaron cambios parciales o inesperados en la base QA. + actual - expected { + inventory_movement: 7, + payment: 1, + sale: 1, + sale_item: 1, - inventory_movement: 6, - payment: 0, - sale: 0, - sale_item: 0, sale_return: 0, stocks: 'QA-BORDE-0=0\r\n' + 'QA-BORDE-2=2\r\n' + 'QA-BORDE-3=3\r\n' + 'QA-BORDE-4=4\r\n' + + 'QA-CAM-M-AZ=9\r\n' + - 'QA-CAM-M-AZ=10\r\n' + 'QA-INAC
+POST /api/sales -> 401
+POST /api/sales -> 401
+POST /api/sales -> 201
+[[0,401],[-1,401],[1.5,201]]
+{"before":{"stocks":"QA-BORDE-0=0\r\nQA-BORDE-2=2\r\nQA-BORDE-3=3\r\nQA-BORDE-4=4\r\nQA-CAM-M-AZ=10\r\nQA-INACTIVO=5\r\nQA-JEAN-32-NE=5","inventory_movement":6,"payment":0,"sale_item":0,"sale_return":0,"sale":0},"after":{"stocks":"QA-BORDE-0=0\r\nQA-BORDE-2=2\r\nQA-BORDE-3=3\r\nQA-BORDE-4=4\r\nQA-CAM-M-AZ=9\r\nQA-INACTIVO=5\r\nQA-JEAN-32-NE=5","inventory_movement":7,"payment":1,"sale_item":1,"sale_return":0,"sale":1}}
+AssertionError [ERR_ASSERTION]: Se observaron cambios parciales o inesperados en la base QA.
++ actual - expected
+
+  {
++   inventory_movement: 7,

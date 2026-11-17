@@ -1,0 +1,12 @@
+CA-13-02 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: Neto y devolución por fecha correctos; el resumen no muestra el descuento de 18000 COP.
+POST /api/sales -> 201
+POST /api/sales/FAC-20261116232718231-E5B1912B/return -> 201
+GET /api/sales/daily-summary?date=2026-11-16 -> 200
+GET /api/sales/daily-summary?date=2026-11-17 -> 200
+{"d":{"date":"2026-11-16","count":1,"total":162000,"grossSales":162000,"refunds":0},"n":{"date":"2026-11-17","count":0,"total":-162000,"grossSales":0,"refunds":162000}}
+AssertionError [ERR_ASSERTION]: Neto y devolución por fecha correctos; el resumen no muestra el descuento de 18000 COP.
+    at CA-13-02 (<ruta-local>\target\qa20261116\api-qa.cjs:286:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async run (<ruta-local>\target\qa20261116\common.cjs:96:17)
+    at async <ruta-local>\target\qa20261116\api-qa.cjs:354:48

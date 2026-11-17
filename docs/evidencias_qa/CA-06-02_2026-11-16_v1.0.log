@@ -1,0 +1,9 @@
+CA-06-02 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Búsqueda por nombre y documento; venta y comprobante asociados al mismo cliente.
+GET /api/customers?q=QA-DOC-0001 -> 200
+GET /api/customers?q=Cliente%20QA -> 200
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232648292-1631DA6F -> 200
+
+Comprobación adicional Playwright: Búsquedas por nombre y documento desde Ventas, selección y comprobante vinculado.
+Captura: CA-06-02/web/CA-06-02_2026-11-16_v1.0.png

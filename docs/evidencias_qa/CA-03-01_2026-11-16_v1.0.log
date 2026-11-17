@@ -1,0 +1,8 @@
+CA-03-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Producto y variante QA creados y consultados por SKU; campos y estado íntegros.
+GET /api/products -> 200
+POST /api/products -> 201
+GET /api/products -> 200
+
+Comprobación adicional Playwright: Formulario real creó la variante y la búsqueda por SKU dejó una sola coincidencia.
+Captura: CA-03-01/web/CA-03-01_2026-11-16_v1.0.png

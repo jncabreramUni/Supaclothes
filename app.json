@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "e114ad3a-7390-4fb5-b844-7a99b54ce292"
+      }
+    },
+    "android": {
+      "package": "com.jncm.supaclothes"
+    }
+  }
+}

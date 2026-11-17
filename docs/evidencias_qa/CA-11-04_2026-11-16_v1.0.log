@@ -1,0 +1,10 @@
+CA-11-04 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: Venta inexistente rechazada (401); SKU ajeno ignorado (201).
+POST /api/sales -> 201
+POST /api/sales/QA-INEXISTENTE/return -> 401
+POST /api/sales/FAC-20261116233451116-BB564052/return -> 201
+AssertionError [ERR_ASSERTION]: Venta inexistente rechazada (401); SKU ajeno ignorado (201).
+    at CA-11-04 (<ruta-local>\target\qa20261116\api-qa.cjs:237:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async run (<ruta-local>\target\qa20261116\common.cjs:96:17)
+    at async <ruta-local>\target\qa20261116\api-qa.cjs:360:84

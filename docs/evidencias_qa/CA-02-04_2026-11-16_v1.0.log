@@ -1,0 +1,11 @@
+CA-02-04 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: PUT/PATCH para cambiar a BODEGA: 401/401; la sesión siguió como VENDEDOR. + actual - expected + 'VENDEDOR' - 'BODEGA' 
+GET /api/users -> 200
+PATCH /api/users/2 -> 401
+PUT /api/users/2 -> 401
+POST /api/auth/login -> 200
+AssertionError [ERR_ASSERTION]: PUT/PATCH para cambiar a BODEGA: 401/401; la sesión siguió como VENDEDOR.
++ actual - expected
+
++ 'VENDEDOR'
+- 'BODEGA'

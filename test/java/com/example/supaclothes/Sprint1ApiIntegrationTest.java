@@ -13,6 +13,8 @@ import com.example.supaclothes.repository.SaleRepository;
 import com.example.supaclothes.repository.UserRepository;
 import com.example.supaclothes.security.JwtService;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
@@ -37,6 +39,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -323,6 +326,23 @@ class Sprint1ApiIntegrationTest {
                 .andExpect(status().isNoContent());
         mockMvc.perform(get("/api/users").header("Authorization", "Bearer " + token))
                 .andExpect(status().isUnauthorized());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"application/json", "*/*"})
+    void acceptsStandardMobileHeadersForJsonEndpoints(String accept) throws Exception {
+        User admin = createUser("ADMIN");
+        String credentials = "{\"username\":\"" + admin.getUsername() + "\",\"password\":\"Prueba123!\"}";
+
+        for (String path : new String[]{"/api/auth/login", "/api/auth/admin/login"}) {
+            mockMvc.perform(post(path).accept(accept).contentType(MediaType.APPLICATION_JSON).content(credentials))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                    .andExpect(jsonPath("$.token").isNotEmpty());
+        }
+        mockMvc.perform(get("/api/products").accept(accept).header("Authorization", bearer(admin)))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
     }
 
     @Test

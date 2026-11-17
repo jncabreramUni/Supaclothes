@@ -1,0 +1,11 @@
+CA-01-06 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: Sin sesión se obtuvo 401. Con vendedor autenticado se obtuvo 401 en /api/users; se esperaba 403. 401 !== 403 
+GET /api/users -> 401
+POST /api/auth/login -> 200
+GET /api/users -> 401
+GET /api/products -> 200
+AssertionError [ERR_ASSERTION]: Sin sesión se obtuvo 401. Con vendedor autenticado se obtuvo 401 en /api/users; se esperaba 403.
+
+401 !== 403
+
+    at CA-01-06 (<ruta-local>\target\qa20261116\browser.cjs:110:12)

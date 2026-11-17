@@ -1,0 +1,12 @@
+CA-01-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Web verificó las dos sesiones y sus permisos de inventario; falta cotejo en APK.
+POST /api/auth/login -> 200
+GET /api/products -> 200
+GET /api/inventory/movements -> 200
+GET /api/inventory -> 200
+POST /api/auth/logout -> 204
+POST /api/auth/login -> 200
+GET /api/inventory -> 200
+GET /api/inventory/movements -> 200
+GET /api/inventory/movements -> 200
+GET /api/inventory -> 200

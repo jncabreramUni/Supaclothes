@@ -1,0 +1,14 @@
+RNF-01-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: BCrypt y HTTP 401 sin credencial verificados; vendedor autenticado recibe 401 en lugar de 403. 401 !== 403 
+{"publicGet":"https://onrender.com","observed":"301|https://render.com/|0|0.578618"}
+{"publicGet":"https://supaclothes.onrender.com","observed":"200||0|0.465691"}
+GET /api/users -> 401
+GET /api/users -> 401
+GET /api/users -> 200
+AssertionError [ERR_ASSERTION]: BCrypt y HTTP 401 sin credencial verificados; vendedor autenticado recibe 401 en lugar de 403.
+
+401 !== 403
+
+    at security (<ruta-local>\target\qa20261116\technical.cjs:47:12)
+
+Despliegue público, consultas sin sesión: [{"http":200,"type":"text/html","path":"/","webSupaClothes":true},{"http":200,"type":"text/javascript","path":"/js/app.js","sha256":"6138b1991e3ac5c3cc96c1e48c373ffead8f67ca10a857508822e1d485149ef3"},{"http":401,"type":null,"path":"/api/products"}]

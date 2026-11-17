@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "SupaClothes",
+    "slug": "supaclothes-mobile",
+    "version": "1.0.0",
+    "scheme": "supaclothes",
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "userInterfaceStyle": "automatic",
+    "android": {
+      "package": "com.supaclothes.mobile"
+    },
+    "ios": {
+      "bundleIdentifier": "com.supaclothes"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "20f668da-9ef6-4c7a-b934-ff05a852addd"
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+CA-07-07 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Regla documentada precio antes de IVA, descuento antes del impuesto y HALF_UP por línea: 100000 + 19000 = 119000.
+GET /api/products -> 200
+PUT /api/products/1/variants/1 -> 200
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232658772-5A853282 -> 200

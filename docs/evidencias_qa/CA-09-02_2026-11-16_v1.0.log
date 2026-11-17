@@ -1,0 +1,6 @@
+CA-09-02 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: 0 % y 100 % válidos, subtotales y descuentos preservados en comprobantes.
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232701794-99D9DB9E -> 200
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232701877-02C15CCF -> 200

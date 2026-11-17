@@ -1,0 +1,5 @@
+RT-05-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: JPA persistió la entrada en PostgreSQL; catálogo y consulta HTTP de inventario recuperaron 12 unidades.
+POST /api/inventory/entries -> 201
+GET /api/products -> 200
+GET /api/inventory -> 200

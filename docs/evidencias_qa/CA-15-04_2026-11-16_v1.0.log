@@ -1,0 +1,10 @@
+CA-15-04 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Excel abierto y contrastado con la pantalla, el período y la fecha de generación.
+POST /api/sales -> 201
+POST /api/auth/admin/login -> 200
+GET /api/reports/dashboard -> 200
+GET /api/products -> 200
+GET /api/reports/sales -> 200
+GET /api/reports/sales -> 200
+GET /api/reports/sales/export -> 200
+{"sheets":["Ventas"],"sample":["SupaClothes · Movimientos de ventas y devoluciones",null,null,null,null,null,"Desde","2026-11-16","Hasta","2026-11-16",null,null,"Generado","2026-11-16T23:30:40.038099100",null,null,null,null,"Los importes corresponden a la fecha de cada movimiento. Incluye descuentos e impuestos.",null,null,null,null,null,"Comprobante","Fecha del movimiento","Tipo","Ventas","Devoluciones","Neto","FAC-20261116233039058-29088640","2026-11-16T12:00"]}

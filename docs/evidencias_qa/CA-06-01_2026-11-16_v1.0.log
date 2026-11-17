@@ -1,0 +1,6 @@
+CA-06-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Venta sin cliente continúa y el comprobante identifica Consumidor final.
+GET /api/customers?q= -> 200
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232647848-67DA7D9C -> 200
+GET /api/customers?q= -> 200

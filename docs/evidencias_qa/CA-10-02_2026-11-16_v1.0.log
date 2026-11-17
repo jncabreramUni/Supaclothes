@@ -1,0 +1,8 @@
+CA-10-02 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: HTTP esperado 400/403/404/409/422; HTTP observado 401
+GET /api/sales/QA-SIN-CONFIRMAR -> 401
+AssertionError [ERR_ASSERTION]: HTTP esperado 400/403/404/409/422; HTTP observado 401
+    at status (<ruta-local>\target\qa20261116\common.cjs:35:12)
+    at rejection (<ruta-local>\target\qa20261116\api-qa.cjs:4:20)
+    at CA-10-02 (<ruta-local>\target\qa20261116\api-qa.cjs:215:22)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)

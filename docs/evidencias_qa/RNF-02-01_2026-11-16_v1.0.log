@@ -1,0 +1,5 @@
+RNF-02-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: 10 + 5 − 1 + 1 = 15. Los casos transaccionales pasaron y no hay huérfanos ni stocks negativos.
+POST /api/inventory/entries -> 201
+POST /api/sales -> 201
+POST /api/sales/FAC-20261116233452890-A35E080D/return -> 201

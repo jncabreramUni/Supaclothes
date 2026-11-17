@@ -1,0 +1,9 @@
+CA-03-06 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: SKU vacío: 401; descripción vacía: 201. El plan exige descripción obligatoria.
+POST /api/products -> 401
+POST /api/products -> 201
+AssertionError [ERR_ASSERTION]: SKU vacío: 401; descripción vacía: 201. El plan exige descripción obligatoria.
+    at CA-03-06 (<ruta-local>\target\qa20261116\api-qa.cjs:112:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async run (<ruta-local>\target\qa20261116\common.cjs:96:17)
+    at async <ruta-local>\target\qa20261116\api-qa.cjs:360:84

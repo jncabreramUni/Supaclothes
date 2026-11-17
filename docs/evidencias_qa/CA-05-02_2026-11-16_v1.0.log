@@ -1,0 +1,6 @@
+CA-05-02 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Web: 0 agotado, 2 y 3 stock bajo, 4 disponible. Filtro incluye el umbral y excluye 4.
+POST /api/auth/login -> 200
+GET /api/products -> 200
+GET /api/inventory/movements -> 200
+GET /api/inventory -> 200

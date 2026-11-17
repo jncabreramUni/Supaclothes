@@ -1,0 +1,19 @@
+CA-13-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: Totales correctos (400000 y 50000 COP). El resumen omite el desglose por medio de pago.
+POST /api/sales -> 201
+POST /api/sales -> 201
+GET /api/products -> 200
+PUT /api/products/6/variants/6 -> 200
+POST /api/sales -> 201
+POST /api/sales -> 201
+GET /api/sales/daily-summary?date=2026-11-16 -> 200
+GET /api/sales/daily-summary?date=2026-11-17 -> 200
+{"day":{"date":"2026-11-16","count":3,"total":400000,"grossSales":400000,"refunds":0},"next":{"date":"2026-11-17","count":1,"total":50000,"grossSales":50000,"refunds":0},"mediosFuente":"EFECTIVO|180000.00\r\nTARJETA|80000.00\r\nTRANSFERENCIA|140000.00"}
+AssertionError [ERR_ASSERTION]: Totales correctos (400000 y 50000 COP). El resumen omite el desglose por medio de pago.
+    at CA-13-01 (<ruta-local>\target\qa20261116\api-qa.cjs:278:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async run (<ruta-local>\target\qa20261116\common.cjs:96:17)
+    at async <ruta-local>\target\qa20261116\api-qa.cjs:354:48
+
+Comprobación adicional Playwright: Resumen web con total y cantidad; sin detalle por forma de pago.
+Captura: CA-13-01/web/CA-13-01_2026-11-16_v1.0.png

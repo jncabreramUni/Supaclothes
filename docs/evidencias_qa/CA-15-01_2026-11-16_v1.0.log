@@ -1,0 +1,6 @@
+CA-15-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Reporte solo incluye D y D+1; 2 ventas, total 230000 COP.
+POST /api/sales -> 201
+POST /api/sales -> 201
+POST /api/sales -> 201
+GET /api/reports/sales?from=2026-11-16&to=2026-11-17 -> 200

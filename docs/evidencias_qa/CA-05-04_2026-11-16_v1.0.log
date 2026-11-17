@@ -1,0 +1,6 @@
+CA-05-04 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: La entrada QA cambia 10→12 en PostgreSQL/API; resta cotejar con captura física.
+POST /api/inventory/entries -> 201
+
+Comprobación adicional Playwright: Entrada real desde el formulario: 10→12 unidades, conciliado con PostgreSQL.
+Captura: CA-05-04/web/CA-05-04_2026-11-16_v1.0.png

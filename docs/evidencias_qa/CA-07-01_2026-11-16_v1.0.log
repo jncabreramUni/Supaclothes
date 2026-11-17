@@ -1,0 +1,8 @@
+CA-07-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: 2 A y 1 B, total 180000 COP, stocks 8/4; una venta, dos líneas y un pago.
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232649371-EAD6781C -> 200
+{"total":180000,"stocks":[8,4],"persistencia":{"inventory_movement":8,"payment":1,"sale_item":2,"sale_return":0,"sale":1}}
+
+Comprobación adicional Playwright: Carrito de dos líneas, total de 180000 COP y confirmación real con stocks 8/4.
+Captura: CA-07-01/web/CA-07-01_2026-11-16_v1.0.png

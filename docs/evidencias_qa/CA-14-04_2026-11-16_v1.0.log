@@ -1,0 +1,9 @@
+CA-14-04 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Dashboard y resumen diario concilian. Vendedor denegado con HTTP 401; resta captura física.
+POST /api/sales -> 201
+GET /api/reports/dashboard -> 401
+GET /api/reports/dashboard?from=2026-11-16&to=2026-11-16 -> 200
+GET /api/sales/daily-summary?date=2026-11-16 -> 200
+
+Comprobación adicional Playwright: Dashboard y resumen web muestran el mismo total de 180000 COP; resta captura física.
+Captura: CA-14-04/web/CA-14-04_2026-11-16_v1.0.png

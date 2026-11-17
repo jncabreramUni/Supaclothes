@@ -1,0 +1,6 @@
+CA-12-02 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Detalle completo e idéntico tras intentar modificarlo (HTTP 401).
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232714797-E285C5B7 -> 200
+PUT /api/sales/FAC-20261116232714797-E285C5B7 -> 401
+GET /api/sales/FAC-20261116232714797-E285C5B7 -> 200

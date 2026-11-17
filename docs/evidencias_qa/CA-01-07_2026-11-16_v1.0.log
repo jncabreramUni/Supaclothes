@@ -1,0 +1,7 @@
+CA-01-07 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Cerrar sesión revocó el JWT y Atrás/recarga mantuvieron cerrado el acceso.
+POST /api/auth/login -> 200
+GET /api/products -> 200
+GET /api/products -> 200
+POST /api/auth/logout -> 204
+GET /api/products -> 401

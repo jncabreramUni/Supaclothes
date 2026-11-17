@@ -1,0 +1,11 @@
+CA-11-03 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: El prerrequisito de devolver solo 1 de 2 A falló: la primera devolución fue total (180000 COP). 180000 !== 50000 
+POST /api/sales -> 201
+POST /api/sales/FAC-20261116233449093-F13E7738/return -> 201
+POST /api/sales/FAC-20261116233449093-F13E7738/return -> 401
+{"before":{"stocks":"QA-BORDE-0=0\r\nQA-BORDE-2=2\r\nQA-BORDE-3=3\r\nQA-BORDE-4=4\r\nQA-CAM-M-AZ=10\r\nQA-INACTIVO=5\r\nQA-JEAN-32-NE=5","inventory_movement":10,"payment":1,"sale_item":2,"sale_return":1,"sale":1},"after":{"stocks":"QA-BORDE-0=0\r\nQA-BORDE-2=2\r\nQA-BORDE-3=3\r\nQA-BORDE-4=4\r\nQA-CAM-M-AZ=10\r\nQA-INACTIVO=5\r\nQA-JEAN-32-NE=5","inventory_movement":10,"payment":1,"sale_item":2,"sale_return":1,"sale":1}}
+AssertionError [ERR_ASSERTION]: El prerrequisito de devolver solo 1 de 2 A falló: la primera devolución fue total (180000 COP).
+
+180000 !== 50000
+
+    at CA-11-03 (<ruta-local>\target\qa20261116\api-qa.cjs:231:12)

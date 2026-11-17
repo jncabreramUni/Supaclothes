@@ -1,0 +1,7 @@
+CA-16-02 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Tamaño aumenta, disminuye y se restaura; selector de SKU sigue accesible.
+POST /api/auth/admin/login -> 200
+GET /api/products -> 200
+GET /api/reports/dashboard -> 200
+GET /api/products -> 200
+[23,27.6,32.2,27.6,23]

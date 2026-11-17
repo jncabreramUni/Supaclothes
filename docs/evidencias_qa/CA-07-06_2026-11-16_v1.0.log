@@ -1,0 +1,10 @@
+CA-07-06 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: Se confirmó una sola venta, stock 0 y un movimiento. Respuestas: 201/401; el conflicto debía ser 409. + actual - expected [ 201, + 401 - 409 ] 
+POST /api/sales -> 201
+POST /api/sales -> 401
+{"statuses":[201,401],"stock":0,"movements":1}
+AssertionError [ERR_ASSERTION]: Se confirmó una sola venta, stock 0 y un movimiento. Respuestas: 201/401; el conflicto debía ser 409.
++ actual - expected
+
+  [
+    201,

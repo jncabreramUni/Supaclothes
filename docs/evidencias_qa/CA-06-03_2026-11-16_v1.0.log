@@ -1,0 +1,8 @@
+CA-06-03 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Registro con datos mínimos y venta posterior válida.
+POST /api/customers -> 201
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232648686-1B7399E1 -> 200
+
+Comprobación adicional Playwright: Alta desde el diálogo sin teléfono ni correo y comprobante de la venta asociado.
+Captura: CA-06-03/web/CA-06-03_2026-11-16_v1.0.png

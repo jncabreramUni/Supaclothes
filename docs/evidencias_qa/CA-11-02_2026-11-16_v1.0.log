@@ -1,0 +1,10 @@
+CA-11-02 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: La condición no reintegrable fue ignorada; B subió de 4 a 5. 5 !== 4 
+POST /api/sales -> 201
+POST /api/sales/FAC-20261116232706301-451F56DA/return -> 201
+{"refund":180000,"stockB":5}
+AssertionError [ERR_ASSERTION]: La condición no reintegrable fue ignorada; B subió de 4 a 5.
+
+5 !== 4
+
+    at CA-11-02 (<ruta-local>\target\qa20261116\api-qa.cjs:223:57)

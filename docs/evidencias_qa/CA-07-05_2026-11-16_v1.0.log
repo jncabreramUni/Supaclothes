@@ -1,0 +1,5 @@
+CA-07-05 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Fallo inducido en payment, HTTP 401; venta, detalle, pago, movimientos y stock regresaron al estado inicial.
+POST /api/sales -> 401
+{"constraint":"payment.qa_injected_failure (CHECK false NOT VALID)","http":401}
+{"before":{"stocks":"QA-BORDE-0=0\r\nQA-BORDE-2=2\r\nQA-BORDE-3=3\r\nQA-BORDE-4=4\r\nQA-CAM-M-AZ=10\r\nQA-INACTIVO=5\r\nQA-JEAN-32-NE=5","inventory_movement":6,"payment":0,"sale_item":0,"sale_return":0,"sale":0},"after":{"stocks":"QA-BORDE-0=0\r\nQA-BORDE-2=2\r\nQA-BORDE-3=3\r\nQA-BORDE-4=4\r\nQA-CAM-M-AZ=10\r\nQA-INACTIVO=5\r\nQA-JEAN-32-NE=5","inventory_movement":6,"payment":0,"sale_item":0,"sale_return":0,"sale":0}}

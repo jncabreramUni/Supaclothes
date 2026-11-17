@@ -1,0 +1,23 @@
+CA-02-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: Los tres roles se asignaron; la API devolvió 401 donde debía devolver 403. + actual - expected ... Skipped lines [ [ 'ADMIN', 200, 200 ... 'VENDEDOR', + 401, - 403, 200 ], [ 'BODEGA', + 401, + 401 - 403, - 403 ] ] 
+POST /api/users -> 201
+POST /api/auth/admin/login -> 200
+GET /api/users -> 200
+GET /api/sales -> 200
+POST /api/users -> 201
+POST /api/auth/login -> 200
+GET /api/users -> 401
+GET /api/sales -> 200
+POST /api/users -> 201
+POST /api/auth/login -> 200
+GET /api/users -> 401
+GET /api/sales -> 401
+{"permissions":[["ADMIN",200,200],["VENDEDOR",401,200],["BODEGA",401,401]]}
+AssertionError [ERR_ASSERTION]: Los tres roles se asignaron; la API devolvió 401 donde debía devolver 403.
++ actual - expected
+... Skipped lines
+
+  [
+
+Comprobación adicional Playwright: Alta de Bodega desde el formulario real y la cuenta apareció en el listado.
+Captura: CA-02-01/web/CA-02-01_2026-11-16_v1.0.png

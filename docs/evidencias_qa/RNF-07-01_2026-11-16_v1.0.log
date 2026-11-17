@@ -1,0 +1,4 @@
+RNF-07-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: 80 acciones web (4×20) y 60 llamadas del cliente móvil (3×20); todos los flujos 20/20 ≤3 s. Local en caliente, sin render Android.
+POST /api/sales -> 201
+{"web":"80 muestras web. Acceso web 20/20; Inventario web 20/20; Resumen diario web 20/20; Confirmar venta web 20/20 ≤3 s. Medición local en caliente.","mobile":{"Cliente móvil acceso":{"samples":20,"le3000":20,"max":150.7},"Cliente móvil inventario":{"samples":20,"le3000":20,"max":22.2},"Cliente móvil resumen":{"samples":20,"le3000":20,"max":22.9}},"condition":"Cliente TypeScript con fetch real sobre loopback, latencia HTTP; no incluye pantalla Android."}

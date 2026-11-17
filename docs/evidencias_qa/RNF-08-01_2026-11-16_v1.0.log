@@ -1,0 +1,5 @@
+RNF-08-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Revisión de capas y clientes HTTP; las solicitudes de roles incorrectos fueron denegadas por el servidor.
+GET /api/inventory -> 200
+GET /api/users -> 401
+POST /api/inventory/entries -> 401

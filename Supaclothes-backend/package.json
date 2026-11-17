@@ -1,0 +1,11 @@
+{
+  "name": "supaclothes-web-build",
+  "private": true,
+  "scripts": {
+    "build:web": "node scripts/build-web.cjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "javascript-obfuscator": "5.10.1"
+  }
+}

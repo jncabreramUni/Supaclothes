@@ -1,0 +1,14 @@
+CA-14-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: Totales, stock bajo y gráfica presentes; falta el indicador de productos más vendidos.
+POST /api/sales -> 201
+POST /api/auth/admin/login -> 200
+GET /api/reports/dashboard -> 200
+GET /api/products -> 200
+GET /api/products -> 200
+GET /api/reports/dashboard -> 200
+GET /api/reports/dashboard -> 200
+AssertionError [ERR_ASSERTION]: Totales, stock bajo y gráfica presentes; falta el indicador de productos más vendidos.
+    at CA-14-01 (<ruta-local>\target\qa20261116\browser.cjs:188:12)
+    at async <ruta-local>\target\qa20261116\browser.cjs:318:28
+    at async run (<ruta-local>\target\qa20261116\common.cjs:96:17)
+    at async <ruta-local>\target\qa20261116\browser.cjs:316:13

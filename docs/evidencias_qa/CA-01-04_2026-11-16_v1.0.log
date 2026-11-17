@@ -1,0 +1,2 @@
+CA-01-04 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: La validación nativa impidió las tres combinaciones incompletas sin enviar peticiones.

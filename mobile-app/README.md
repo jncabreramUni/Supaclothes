@@ -11,8 +11,10 @@ npm ci
 Copy-Item .env.example .env.local
 ```
 
-- **Emulador de Android Studio**. El valor incluido en `.env.example` apunta a `http://10.0.2.2:8081/api`.
-- **Celular físico**. Sustituye `10.0.2.2` por la IPv4 del computador que ejecuta Spring Boot. Conecta ambos equipos a la misma red y verifica que el celular pueda abrir `http://<IP-del-PC>:8081/`.
+- **Emulador de Android Studio**. Para usar Spring Boot local, asigna `EXPO_PUBLIC_API_URL=http://10.0.2.2:8081` en `.env.local`.
+- **Celular físico**. Usa `EXPO_PUBLIC_API_URL=http://<IP-del-PC>:8081` para conectar con Spring Boot local. Conecta ambos equipos a la misma red y verifica que el celular pueda abrir esa dirección.
+
+El cliente añade el prefijo `/api`. Las configuraciones locales que ya incluyen ese prefijo siguen funcionando.
 
 Para probar el manifiesto Android, abre un emulador o conecta un dispositivo con depuración USB y ejecuta lo siguiente con Android Studio, el SDK de Android y Java configurados.
 
@@ -25,6 +27,21 @@ npm run android
 Para abrir el proyecto en una versión de Expo Go compatible con SDK 57, ejecuta `npm start`. Si el sistema bloquea HTTP local en Expo Go, usa la compilación propia en Android o una URL HTTPS. Después de cambiar `.env.local`, vuelve a iniciar Metro y recarga la app.
 
 Si ya tenías una compilación de la app instalada, recompílala con `npm run android` para usar los módulos nativos de PDF y archivos. En iOS, recompila localmente con `npm run ios` en macOS.
+
+## APK de Android con EAS
+
+Los perfiles `preview` y `production` generan una APK de release para `com.supaclothes.mobile`. Expo Prebuild aplica Hermes V1, R8 y la reducción de recursos. Para un release local, regenera `android/` desde la configuración de Expo antes de compilar.
+
+Los dos perfiles usan `https://supaclothes.onrender.com`. Expo incorpora `EXPO_PUBLIC_API_URL` al bundle de la APK durante la compilación. Si cambia el dominio de la API, actualiza `eas.json` y vuelve a generar la APK.
+
+Desde `mobile-app`, autentícate en EAS y vincula el proyecto si es la primera compilación. Ejecuta uno de estos comandos según el perfil que quieras generar.
+
+```powershell
+npx eas-cli build --platform android --profile preview
+npx eas-cli build --platform android --profile production
+```
+
+Descarga la APK del resultado de EAS, instálala en un dispositivo de prueba y verifica el inicio de sesión contra la API desplegada.
 
 ## Flujos incluidos
 

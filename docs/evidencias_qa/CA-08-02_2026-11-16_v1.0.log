@@ -1,0 +1,4 @@
+CA-08-02 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Pago exacto de 80000 COP y cambio cero.
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232659503-BE12436A -> 200

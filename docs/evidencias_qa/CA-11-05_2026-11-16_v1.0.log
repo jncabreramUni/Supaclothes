@@ -1,0 +1,18 @@
+CA-11-05 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: HTTP para motivo vacío / cero / negativo / decimal / sin condición: 401/201/201/201/201. El endpoint solo evalúa el motivo.
+POST /api/sales -> 201
+POST /api/sales/FAC-20261116232709593-E56D90B9/return -> 401
+POST /api/sales -> 201
+POST /api/sales/FAC-20261116232709659-F95694D9/return -> 201
+POST /api/sales -> 201
+POST /api/sales/FAC-20261116232709724-13C9C81B/return -> 201
+POST /api/sales -> 201
+POST /api/sales/FAC-20261116232709787-2425D4C8/return -> 201
+POST /api/sales -> 201
+POST /api/sales/FAC-20261116232709844-47F9B39A/return -> 201
+[401,201,201,201,201]
+AssertionError [ERR_ASSERTION]: HTTP para motivo vacío / cero / negativo / decimal / sin condición: 401/201/201/201/201. El endpoint solo evalúa el motivo.
+    at CA-11-05 (<ruta-local>\target\qa20261116\api-qa.cjs:244:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async run (<ruta-local>\target\qa20261116\common.cjs:96:17)
+    at async <ruta-local>\target\qa20261116\api-qa.cjs:354:48

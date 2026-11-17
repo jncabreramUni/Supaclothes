@@ -1,0 +1,11 @@
+CA-05-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: Búsqueda por SKU y nombre funciona; hay 0 filtros de categoría, talla y color.
+POST /api/auth/login -> 200
+GET /api/products -> 200
+GET /api/inventory/movements -> 200
+GET /api/inventory -> 200
+AssertionError [ERR_ASSERTION]: Búsqueda por SKU y nombre funciona; hay 0 filtros de categoría, talla y color.
+    at CA-05-01 (<ruta-local>\target\qa20261116\browser.cjs:125:12)
+    at async <ruta-local>\target\qa20261116\browser.cjs:318:28
+    at async run (<ruta-local>\target\qa20261116\common.cjs:96:17)
+    at async <ruta-local>\target\qa20261116\browser.cjs:316:13

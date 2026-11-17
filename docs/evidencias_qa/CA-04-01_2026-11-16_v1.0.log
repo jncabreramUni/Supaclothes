@@ -1,0 +1,8 @@
+CA-04-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Entrada 5 unidades, stock 10→15; movimiento con fecha y usuario Bodega QA.
+POST /api/inventory/entries -> 201
+GET /api/inventory/movements -> 200
+{"id":11,"sku":"QA-CAM-M-AZ","type":"ENTRADA","quantity":5,"previousStock":10,"resultingStock":15,"username":"qa_bodega","reference":"Entrada sintética QA","createdAt":"2026-11-16T23:26:41.17254"}
+
+Comprobación adicional Playwright: Entrada real desde el formulario: 10→15 unidades, conciliado con PostgreSQL.
+Captura: CA-04-01/web/CA-04-01_2026-11-16_v1.0.png

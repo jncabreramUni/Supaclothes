@@ -1,0 +1,10 @@
+CA-07-02 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: Quitar B funciona y el stock permanece intacto; la cantidad de A es una celda sin edición directa.
+POST /api/auth/login -> 200
+GET /api/products -> 200
+GET /api/products -> 200
+Error: Quitar B funciona y el stock permanece intacto; la cantidad de A es una celda sin edición directa.
+    at CA-07-02 (<ruta-local>\target\qa20261116\browser.cjs:146:44)
+    at async <ruta-local>\target\qa20261116\browser.cjs:318:28
+    at async run (<ruta-local>\target\qa20261116\common.cjs:96:17)
+    at async <ruta-local>\target\qa20261116\browser.cjs:316:13

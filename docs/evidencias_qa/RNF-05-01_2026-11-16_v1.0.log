@@ -1,0 +1,6 @@
+RNF-05-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Lighthouse Accessibility: Acceso 100, Inventario 100, Ventas 100, Dashboard 100. Informes individuales adjuntos.
+{"section":"acceso","score":100,"final":"http://127.0.0.1:62622/?qa_audit=acceso","version":"13.6.0","failed":[]}
+{"section":"inventario","score":100,"final":"http://127.0.0.1:62622/?qa_audit=inventario#inventario","version":"13.6.0","failed":[]}
+{"section":"ventas","score":100,"final":"http://127.0.0.1:62622/?qa_audit=ventas#ventas","version":"13.6.0","failed":[]}
+{"section":"inicio","score":100,"final":"http://127.0.0.1:62622/?qa_audit=inicio#inicio","version":"13.6.0","failed":[]}

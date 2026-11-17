@@ -1,0 +1,4 @@
+CA-16-04 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Tab, Shift+Tab, Enter y Escape abren y cierran formulario con foco visible en ambos temas.
+POST /api/auth/login -> 200
+GET /api/products -> 200

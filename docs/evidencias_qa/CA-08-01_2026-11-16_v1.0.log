@@ -1,0 +1,7 @@
+CA-08-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Comprobante: total 180000, recibido 200000, cambio 20000 COP.
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232659122-896E0C1C -> 200
+
+Comprobación adicional Playwright: La web mostró cambio estimado y el comprobante confirmó 20000 COP.
+Captura: CA-08-01/web/CA-08-01_2026-11-16_v1.0.png

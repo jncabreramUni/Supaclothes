@@ -1,0 +1,11 @@
+RNF-04-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Flujo web automatizado: login, consulta, error de efectivo y recuperación con una venta. Evaluación funcional automatizada, sin observación física.
+POST /api/auth/login -> 200
+GET /api/products -> 200
+GET /api/inventory -> 200
+GET /api/inventory/movements -> 200
+GET /api/products -> 200
+POST /api/sales -> 201
+GET /api/inventory/movements -> 200
+GET /api/products -> 200
+GET /api/sales/FAC-20261116233053586-C4AB6F24 -> 200

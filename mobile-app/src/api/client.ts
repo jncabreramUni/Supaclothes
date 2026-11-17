@@ -1,4 +1,5 @@
-export const apiUrl = process.env.EXPO_PUBLIC_API_URL?.trim().replace(/\/+$/, '') ?? '';
+const apiBaseUrl = process.env.EXPO_PUBLIC_API_URL?.trim().replace(/\/+$/, '') ?? '';
+export const apiUrl = apiBaseUrl && `${apiBaseUrl.replace(/\/api$/, '')}/api`;
 export const xlsxMime = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
 
 export interface WorkbookDownload {

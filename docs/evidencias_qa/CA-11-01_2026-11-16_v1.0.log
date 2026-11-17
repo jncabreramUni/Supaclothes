@@ -1,0 +1,10 @@
+CA-11-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: Solicité 1 A reintegrable. El endpoint registró devolución por 180000 COP y stock A/B 10/5. + actual - expected [ + 10, + 5, + 180000 - 9, - 4, - 50000 ] 
+POST /api/sales -> 201
+POST /api/sales/FAC-20261116232705050-AC18B191/return -> 201
+{"refund":180000,"stockA":10,"stockB":5}
+AssertionError [ERR_ASSERTION]: Solicité 1 A reintegrable. El endpoint registró devolución por 180000 COP y stock A/B 10/5.
++ actual - expected
+
+  [
++   10,

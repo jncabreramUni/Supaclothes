@@ -1,0 +1,6 @@
+CA-01-02 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Acceso administrativo por formulario y listado real de usuarios visible.
+POST /api/auth/admin/login -> 200
+GET /api/products -> 200
+GET /api/reports/dashboard -> 200
+GET /api/users -> 200

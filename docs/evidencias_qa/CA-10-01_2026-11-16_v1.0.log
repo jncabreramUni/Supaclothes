@@ -1,0 +1,7 @@
+CA-10-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Dos comprobantes únicos, uno con Cliente QA y otro como consumidor final; detalle y pago íntegros.
+GET /api/customers?q=QA-DOC-0001 -> 200
+POST /api/sales -> 201
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232704214-5A202904 -> 200
+GET /api/sales/FAC-20261116232704269-21EFED5D -> 200

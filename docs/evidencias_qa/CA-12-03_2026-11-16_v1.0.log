@@ -1,0 +1,13 @@
+CA-12-03 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: El comprobante reabierto desde el historial coincide con el original y se obtuvo la salida de impresión.
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116233028217-A8B55BC3 -> 200
+POST /api/auth/login -> 200
+GET /api/products -> 200
+GET /api/sales -> 200
+GET /api/sales -> 200
+GET /api/sales/FAC-20261116233028217-A8B55BC3 -> 200
+GET /api/sales/FAC-20261116233028217-A8B55BC3/return -> 401
+GET /api/products -> 200
+GET /api/sales -> 200
+GET /api/sales/FAC-20261116233028217-A8B55BC3 -> 200

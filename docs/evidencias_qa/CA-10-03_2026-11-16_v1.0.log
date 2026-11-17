@@ -1,0 +1,16 @@
+CA-10-03 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: PDF extraído y leído; previsualización de impresión y reimpresión conservaron consecutivo y datos sin crear otra venta.
+POST /api/sales -> 201
+POST /api/auth/login -> 200
+GET /api/products -> 200
+GET /api/products -> 200
+GET /api/sales/FAC-20261116233012793-9FB49D00 -> 200
+GET /api/sales/FAC-20261116233012793-9FB49D00/return -> 401
+GET /api/products -> 200
+GET /api/sales -> 200
+{"pdfBytes":1940,"receipt":"FAC-20261116233012793-9FB49D00"}
+GET /api/products -> 200
+GET /api/sales/FAC-20261116233012793-9FB49D00 -> 200
+GET /api/sales/FAC-20261116233012793-9FB49D00/return -> 401
+GET /api/products -> 200
+GET /api/sales -> 200

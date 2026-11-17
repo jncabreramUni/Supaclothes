@@ -1,0 +1,7 @@
+CA-09-01 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Aprobado: Descuento 10 %, 18000 COP, total 162000 COP y usuario responsable persistido.
+POST /api/sales -> 201
+GET /api/sales/FAC-20261116232701302-92857AAB -> 200
+
+Comprobación adicional Playwright: ADMIN aplicó 10 % en web. Total recalculado 162000 y comprobante con descuento de 18000 COP.
+Captura: CA-09-01/web/CA-09-01_2026-11-16_v1.0.png

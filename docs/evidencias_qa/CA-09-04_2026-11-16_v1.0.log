@@ -1,0 +1,12 @@
+CA-09-04 | 16/11/2026 | v1.0 | instancia aislada PostgreSQL 17
+Fallido: HTTP esperado 403; HTTP observado 401
+POST /api/sales -> 401
+{"before":{"stocks":"QA-BORDE-0=0\r\nQA-BORDE-2=2\r\nQA-BORDE-3=3\r\nQA-BORDE-4=4\r\nQA-CAM-M-AZ=10\r\nQA-INACTIVO=5\r\nQA-JEAN-32-NE=5","inventory_movement":6,"payment":0,"sale_item":0,"sale_return":0,"sale":0},"after":{"stocks":"QA-BORDE-0=0\r\nQA-BORDE-2=2\r\nQA-BORDE-3=3\r\nQA-BORDE-4=4\r\nQA-CAM-M-AZ=10\r\nQA-INACTIVO=5\r\nQA-JEAN-32-NE=5","inventory_movement":6,"payment":0,"sale_item":0,"sale_return":0,"sale":0}}
+AssertionError [ERR_ASSERTION]: HTTP esperado 403; HTTP observado 401
+    at status (<ruta-local>\target\qa20261116\common.cjs:35:12)
+    at CA-09-04 (<ruta-local>\target\qa20261116\api-qa.cjs:214:121)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async run (<ruta-local>\target\qa20261116\common.cjs:96:17)
+
+Comprobación adicional Playwright: El control de descuento estaba oculto a Vendedor; el resultado HTTP consta en la evidencia API.
+Captura: CA-09-04/web/CA-09-04_2026-11-16_v1.0.png
